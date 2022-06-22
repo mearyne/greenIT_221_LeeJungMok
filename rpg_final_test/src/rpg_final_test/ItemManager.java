@@ -1,10 +1,10 @@
 package rpg_final_test;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
 public class ItemManager { // 모든 아이템들을 모아놓은 장소
+	private ItemDAO itemDAO = new ItemDAO();
 
 	private static final int ADDWEAPON = 1;
 	private static final int ADDARMOUR = 2;
@@ -12,8 +12,7 @@ public class ItemManager { // 모든 아이템들을 모아놓은 장소
 	private static final int ADDPOTION = 4;
 	private static final int BACK = 0;
 
-	public static Map<Integer, Item> items = new HashMap<>(); // 중복되는 아이템도 상관없이 모든 종류의 아이템을 모아놓는다
-	Set<Integer> keys;
+	private Map<Integer, Item> items = ItemDAO.items;
 
 	public void ItemMenu() {
 		while (true) {
@@ -23,10 +22,10 @@ public class ItemManager { // 모든 아이템들을 모아놓은 장소
 		}
 	}
 
-	private int rCode() {
+	private int rCode() { // 아이템DAO에 존재하지 않는 랜덤한 코드 생성
 		while (true) {
 			boolean dup = true;
-			this.keys = items.keySet();
+			Set<Integer> keys = this.items.keySet();
 			int rCode = GameManager.rand.nextInt(1000) + 8999;
 
 			for (Integer key : keys) {
@@ -52,33 +51,22 @@ public class ItemManager { // 모든 아이템들을 모아놓은 장소
 		int sel = GameManager.scan.nextInt();
 
 		if (sel == ADDWEAPON) {
-			addWeapon();
+			itemDAO.addWeapon(rCode());
+			System.out.println("무기가 추가되었습니다");
 		} else if (sel == ADDARMOUR) {
-			addArmour();
+			itemDAO.addArmour(rCode());
+			System.out.println("방어구가 추가되었습니다");
 		} else if (sel == ADDRING) {
-			addRing();
+			itemDAO.addRing(rCode());
+			System.out.println("링이 추가되었습니다");
 		} else if (sel == ADDPOTION) {
-			addPotion();
+			itemDAO.addPotion(rCode());
+			System.out.println("포션이 추가되었습니다");
 		} else if (sel == BACK) {
 			return BACK;
 		}
 
 		return -1;
-	}
-
-	private void addWeapon() {
-		System.out.print("추가할 무기 공격력 입력: ");
-		int input = GameManager.scan.nextInt();
-
-		if (input > 0) {
-			int rCode = rCode();
-			Item weapon = new ItemWeapon(rCode, input);
-			
-			UnitPlayer.getInstance().getInventory().put(rCode, weapon); 
-			items.put(rCode, weapon);
-		} else {
-			System.out.println("무기 공격력이 너무 낮습니다");
-		}
 	}
 
 }

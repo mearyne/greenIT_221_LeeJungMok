@@ -38,4 +38,9 @@ public class Item {
 	public void setType(int type) {
 		this.type = type;
 	}
+
+	public String printItem() {
+		String item = String.format("%s", this.name);
+		return item;
+	}
 }

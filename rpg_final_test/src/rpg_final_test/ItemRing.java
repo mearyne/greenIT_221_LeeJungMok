@@ -9,7 +9,7 @@ public class ItemRing extends Item {
 		this.plusDef = plusDef;
 		super.setItemCode(itemCode);
 		super.setName(String.format("¹ÝÁö[+%d, +%d]", plusAtk, plusDef));
-
+		super.setType(RING);
 	}
 
 	public int getPlusAtk() {
