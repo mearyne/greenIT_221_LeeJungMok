@@ -4,8 +4,12 @@ public class Item {
 	private int itemCode;
 	private String name;
 	private int type; // 해당 아이템의 타입
+<<<<<<< HEAD
 	
 	
+=======
+
+>>>>>>> branch 'main' of https://github.com/mearyne/greenIT_221_LeeJungMok.git
 	public static final int WEAPON = 1;
 	public static final int ARMOUR = 2;
 	public static final int RING = 3;
