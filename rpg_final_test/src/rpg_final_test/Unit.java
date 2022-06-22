@@ -1,13 +1,13 @@
 package rpg_final_test;
 
-import java.util.ArrayList;
-
 public abstract class Unit { // 모든 유닛들의 부모클래스
 	private String name;
 	private int hp;
 	private int atk;
 	private int def;
-	ArrayList<Item> wear = new ArrayList<>();
+	private Item weapon;
+	private Item armour;
+	private Item ring;
 
 	public abstract void attack();
 
@@ -43,6 +43,30 @@ public abstract class Unit { // 모든 유닛들의 부모클래스
 
 	public void setDef(int def) {
 		this.def = def;
+	}
+
+	public Item getWeapon() {
+		return weapon;
+	}
+
+	public void setWeapon(Item weapon) {
+		this.weapon = weapon;
+	}
+
+	public Item getArmour() {
+		return armour;
+	}
+
+	public void setArmour(Item armour) {
+		this.armour = armour;
+	}
+
+	public Item getRing() {
+		return ring;
+	}
+
+	public void setRing(Item ring) {
+		this.ring = ring;
 	}
 
 }
