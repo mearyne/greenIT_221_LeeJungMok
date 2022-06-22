@@ -5,11 +5,11 @@ import java.util.Set;
 
 public class Inventory extends Stage {
 	private UnitParty party = new UnitParty();
-	
+
 	private static final int EQUIP = 1;
 	private static final int REMOVE = 2;
 	private static final int DRINKPOTION = 3;
-	
+
 	public Map<Integer, Item> inventory = UnitPlayer.getInstance().getInventory();
 
 	public Inventory() {
@@ -61,18 +61,22 @@ public class Inventory extends Stage {
 		} else if (sel == REMOVE) {
 			party.printPartyWearing();
 			sel = selItem();
-			
+
 		} else if (sel == DRINKPOTION) {
 
 		}
 
 		return sel;
 	}
-	
+
 	private int selItem() {
-		
-		
-		return null;
+		System.out.print("º±≈√ :");
+		int sel = GameManager.scan.nextInt();
+		return sel;
+	}
+
+	private void remove() {
+
 	}
 
 }
