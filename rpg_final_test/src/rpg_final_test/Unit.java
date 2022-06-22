@@ -13,10 +13,6 @@ public abstract class Unit { // 모든 유닛들의 부모클래스
 
 	public abstract void skill();
 
-	public Unit(String name, int hp, int atk, int def) {
-		// TODO Auto-generated constructor stub
-	}
-	
 	public String getName() {
 		return name;
 	}
