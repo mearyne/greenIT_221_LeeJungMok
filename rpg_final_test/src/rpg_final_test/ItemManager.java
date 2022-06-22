@@ -69,4 +69,15 @@ public class ItemManager { // 모든 아이템들을 모아놓은 장소
 		return -1;
 	}
 
+	public void printItems() {
+		Set<Integer> keys = this.items.keySet();
+
+		System.out.println("========== 아이템 종류 ==========");
+		for (Integer key : keys) {
+			Item item = this.items.get(key);
+
+			System.out.printf("%d. %s\n", item.getItemCode(), item.getName());
+		}
+
+	}
 }

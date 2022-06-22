@@ -69,4 +69,11 @@ public abstract class Unit { // 모든 유닛들의 부모클래스
 		this.ring = ring;
 	}
 
+	public void printWearing() {
+		System.out.printf("[%s]\n", this.name);
+		System.out.printf("ㄴ%s\n", this.weapon.getName());
+		System.out.printf("ㄴ%s\n", this.armour.getName());
+		System.out.printf("ㄴ%s\n", this.ring.getName());
+
+	}
 }

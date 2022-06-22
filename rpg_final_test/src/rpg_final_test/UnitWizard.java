@@ -1,15 +1,15 @@
 package rpg_final_test;
 
-public class LobbyStage extends Stage {
+public class UnitWizard extends Unit {
 
 	@Override
-	public void play() {
+	public void attack() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void init() {
+	public void skill() {
 		// TODO Auto-generated method stub
 		
 	}
