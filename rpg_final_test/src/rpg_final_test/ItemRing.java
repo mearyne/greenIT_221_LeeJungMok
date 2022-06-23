@@ -1,14 +1,15 @@
+
 package rpg_final_test;
 
 public class ItemRing extends Item {
-	private int plusAtk; // °ø°İ·Â Áõ°¡·®
-	private int plusDef; // ¹æ¾î·Â Áõ°¡·®
+	private int plusAtk; // ê³µê²©ë ¥ ì¦ê°€ëŸ‰
+	private int plusDef; // ë°©ì–´ë ¥ ì¦ê°€ëŸ‰
 
 	public ItemRing(int itemCode, int plusAtk, int plusDef) {
 		this.plusAtk = plusAtk;
 		this.plusDef = plusDef;
 		super.setItemCode(itemCode);
-		super.setName(String.format("¹İÁö[+%d, +%d]", plusAtk, plusDef));
+		super.setName(String.format("ë°˜ì§€[+%d, +%d]", plusAtk, plusDef));
 		super.setType(RING);
 	}
 

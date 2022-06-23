@@ -1,6 +1,6 @@
 package rpg_final_test;
 
-public abstract class Stage { // Á¦°¢±â ½ºÅ×ÀÌÁöµéÀÇ ºÎ¸ğÅ¬·¡½º
+public abstract class Stage { // ì œê°ê¸° ìŠ¤í…Œì´ì§€ë“¤ì˜ ë¶€ëª¨í´ë˜ìŠ¤
 	public static final int QUIT = 0;
 	public static final int FOREST = 1;
 	public static final int SHOP = 2;
@@ -13,9 +13,9 @@ public abstract class Stage { // Á¦°¢±â ½ºÅ×ÀÌÁöµéÀÇ ºÎ¸ğÅ¬·¡½º
 		this.name = name;
 	}
 
-	public abstract void play(); // ½ºÅ×ÀÌÁö¸¦ ½ÇÇàÇßÀ»¶§ ÀÛµ¿µÊ
+	public abstract void play(); // ìŠ¤í…Œì´ì§€ë¥¼ ì‹¤í–‰í–ˆì„ë•Œ ì‘ë™ë¨
 
-	public abstract void init(); // ½ºÅ×ÀÌÄ¡¸¦ ºÒ·¯¿Ã¶§ ÃÊ±âÈ­ ½ÃÅ³°ÍµéÀ» ÃÊ±âÈ­ ½ÃÅ°´Â ¸Ş¼Òµå
+	public abstract void init(); // ìŠ¤í…Œì´ì¹˜ë¥¼ ë¶ˆëŸ¬ì˜¬ë•Œ ì´ˆê¸°í™” ì‹œí‚¬ê²ƒë“¤ì„ ì´ˆê¸°í™” ì‹œí‚¤ëŠ” ë©”ì†Œë“œ
 
 	public String getName() {
 		return name;

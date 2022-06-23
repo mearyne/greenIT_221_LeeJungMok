@@ -6,7 +6,7 @@ public class StageShop extends Stage {
 	private static final int SELL = 2;
 
 	public StageShop() {
-		super("°¡°Ô");
+		super("ê°€ê²Œ");
 	}
 
 	@Override
@@ -29,19 +29,19 @@ public class StageShop extends Stage {
 	}
 
 	private void printMenu() {
-		System.out.println("1. ±¸¸ÅÇÏ±â");
-		System.out.println("2. ÆÇ¸ÅÇÏ±â");
-		System.out.println("0. ¸¶À»·Î");
+		System.out.println("1. êµ¬ë§¤í•˜ê¸°");
+		System.out.println("2. íŒë§¤í•˜ê¸°");
+		System.out.println("0. ë§ˆì„ë¡œ");
 	}
 
 	private int selMenu() {
-		System.out.print("¼±ÅÃ :");
+		System.out.print("ì„ íƒ :");
 		int sel = GameManager.scan.nextInt();
 
 		if (sel == BUY) {
-			buyItem();
+//			buyItem();
 		} else if (sel == SELL) {
-			selItem();
+//			selItem();
 		}
 
 		return sel;

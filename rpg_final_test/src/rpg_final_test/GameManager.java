@@ -1,10 +1,11 @@
+
 package rpg_final_test;
 
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-public class GameManager { // °ÔÀÓÀÇ ÀüÃ¼ÀûÀÎ Åë°ı°ü¸®ÀÚ
+public class GameManager { // ê²Œì„ì˜ ì „ì²´ì ì¸ í†µê´„ê´€ë¦¬ì
 
 	public static Scanner scan = new Scanner(System.in);
 	public static Random rand = new Random();
@@ -12,23 +13,23 @@ public class GameManager { // °ÔÀÓÀÇ ÀüÃ¼ÀûÀÎ Åë°ı°ü¸®ÀÚ
 	public static ArrayList<Stage> stageList = new ArrayList<>();
 
 	public GameManager() {
-		// ½ºÅ×ÀÌÁö Ãß°¡
+		// ìŠ¤í…Œì´ì§€ ì¶”ê°€
 		stageList.add(new StageLobby());
 		stageList.add(new StageForest());
 		stageList.add(new StageShop());
 		stageList.add(new Inventory());
 		stageList.add(new BattleStage());
 
-		// ÆÄÆ¼ ¹è¿­¿¡ ÆÄÆ¼¿øµé Ãß°¡ÇÏ±â
+		// íŒŒí‹° ë°°ì—´ì— íŒŒí‹°ì›ë“¤ ì¶”ê°€í•˜ê¸°
 		UnitParty.party.add(new UnitHealer());
 		UnitParty.party.add(new UnitWizard());
 		UnitParty.party.add(UnitPlayer.getInstance());
 	}
 
 	public void run() {
-		System.out.println("°ÔÀÓ ½ÃÀÛ!");
+		System.out.println("ê²Œì„ ì‹œì‘!");
 
-		stageList.get(0).init(); // °ÔÀÓ ½ÃÀÛ
+		stageList.get(0).init(); // ê²Œì„ ì‹œì‘
 		stageList.get(0).play();
 	}
 

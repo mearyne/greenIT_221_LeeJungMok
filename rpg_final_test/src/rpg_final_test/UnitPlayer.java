@@ -9,7 +9,7 @@ public class UnitPlayer extends Unit {
 	private Map<Integer, Item> inventory = new HashMap<>();
 
 	private UnitPlayer() {
-		super.setName("¿ë»ç");
+		super.setName("ìš©ì‚¬");
 		super.setHp(1000);
 		super.setAtk(50);
 		super.setDef(10);

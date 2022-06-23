@@ -3,7 +3,7 @@ package rpg_final_test;
 public class BattleStage extends Stage {
 
 	public BattleStage() {
-		super("½Î¿òÀå¼Ò");
+		super("ê²°íˆ¬ì¥");
 	}
 	
 	@Override

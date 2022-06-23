@@ -1,13 +1,13 @@
 package rpg_final_test;
 
 public class ItemWeapon extends Item {
-	private int plusAtk; // °ø°İ·Â Áõ°¡·®
+	private int plusAtk; // ê³µê²©ë ¥ ì¦ê°€ëŸ‰
 
 	public ItemWeapon(int itemCode, int plusAtk) {
 		super.setItemCode(itemCode);
 		this.setPlusAtk(plusAtk);
 		super.setType(WEAPON);
-		super.setName(String.format("¹«±â[+%d]", plusAtk));
+		super.setName(String.format("ë¬´ê¸°[+%d]", plusAtk));
 	}
 
 	public int getPlusAtk() {

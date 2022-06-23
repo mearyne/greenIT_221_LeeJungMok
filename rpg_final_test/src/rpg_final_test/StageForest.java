@@ -5,7 +5,7 @@ public class StageForest extends Stage {
 	private static final int DEEPER = 1;
 
 	public StageForest() {
-		super("½£¼Ó");
+		super("ìˆ²ì†");
 	}
 
 	@Override
@@ -25,12 +25,12 @@ public class StageForest extends Stage {
 	}
 
 	private void printMenu() {
-		System.out.println("1. ±í¼÷È÷");
-		System.out.println("2. ¸¶À»·Î");
+		System.out.println("1. ê¹Šìˆ™íˆ");
+		System.out.println("2. ë§ˆì„ë¡œ");
 	}
 
 	private int selMenu() {
-		System.out.print("¼±ÅÃ :");
+		System.out.print("ì„ íƒ :");
 		int sel = GameManager.scan.nextInt();
 
 		if (sel == DEEPER) {

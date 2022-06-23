@@ -13,7 +13,7 @@ public class Inventory extends Stage {
 	public Map<Integer, Item> inventory = UnitPlayer.getInstance().getInventory();
 
 	public Inventory() {
-		super("ÀÎº¥Åä¸®");
+		super("ì¸ë²¤í† ë¦¬");
 	}
 
 	@Override
@@ -37,21 +37,21 @@ public class Inventory extends Stage {
 
 	private void printInventory() {
 		Set<Integer> keys = this.inventory.keySet();
-		System.out.println("========== ÀÎº¥Åä¸® ==========");
+		System.out.println("========== ì¸ë²¤í† ë¦¬ ==========");
 		for (Integer key : keys) {
 			System.out.printf("%d. %s\n", this.inventory.get(key).getItemCode(), this.inventory.get(key).getName());
 		}
 	}
 
 	private void printMenu() {
-		System.out.println("1. ÀåÂø");
-		System.out.println("2. ÇØÁ¦");
-		System.out.println("3. Æ÷¼Ç¸Ô±â");
-		System.out.println("0. µÚ·Î°¡±â");
+		System.out.println("1. ì¥ì°©");
+		System.out.println("2. í•´ì œ");
+		System.out.println("3. í¬ì…˜ë¨¹ê¸°");
+		System.out.println("0. ë’¤ë¡œê°€ê¸°");
 	}
 
 	private int selMenu() {
-		System.out.print("¼±ÅÃ :");
+		System.out.print("ì„ íƒ :");
 		int sel = GameManager.scan.nextInt();
 
 		if (sel == EQUIP) {
@@ -70,7 +70,7 @@ public class Inventory extends Stage {
 	}
 
 	private int selItem() {
-		System.out.print("¼±ÅÃ :");
+		System.out.print("ì„ íƒ :");
 		int sel = GameManager.scan.nextInt();
 		return sel;
 	}

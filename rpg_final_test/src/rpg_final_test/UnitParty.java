@@ -22,9 +22,9 @@ public class UnitParty {
 			Item ring = unit.getRing();
 
 			System.out.printf("[%s]\n", name);
-			System.out.printf("§§π´±‚[%d] :%s\n", weapon.getItemCode(), weapon.getName());
-			System.out.printf("§§πÊæÓ±∏[%d] :%s\n", armour.getItemCode(), armour.getName());
-			System.out.printf("§§∏µ[%d] :%s\n", ring.getItemCode(), ring.getName());
+			System.out.printf("„Ñ¥Î¨¥Í∏∞[%d] :%s\n", weapon.getItemCode(), weapon.getName());
+			System.out.printf("„Ñ¥Î∞©Ïñ¥Íµ¨[%d] :%s\n", armour.getItemCode(), armour.getName());
+			System.out.printf("„Ñ¥ÎßÅ[%d] :%s\n", ring.getItemCode(), ring.getName());
 
 		}
 	}

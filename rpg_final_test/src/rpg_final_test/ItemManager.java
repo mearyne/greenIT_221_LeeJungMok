@@ -3,7 +3,7 @@ package rpg_final_test;
 import java.util.Map;
 import java.util.Set;
 
-public class ItemManager { // ¸ğµç ¾ÆÀÌÅÛµéÀ» ¸ğ¾Æ³õÀº Àå¼Ò
+public class ItemManager { // ëª¨ë“  ì•„ì´í…œë“¤ì„ ëª¨ì•„ë†“ì€ ì¥ì†Œ
 	private ItemDAO itemDAO = new ItemDAO();
 
 	private static final int ADDWEAPON = 1;
@@ -22,7 +22,7 @@ public class ItemManager { // ¸ğµç ¾ÆÀÌÅÛµéÀ» ¸ğ¾Æ³õÀº Àå¼Ò
 		}
 	}
 
-	private int rCode() { // ¾ÆÀÌÅÛDAO¿¡ Á¸ÀçÇÏÁö ¾Ê´Â ·£´ıÇÑ ÄÚµå »ı¼º
+	private int rCode() { // ì•„ì´í…œDAOì— ì¡´ì¬í•˜ì§€ ì•ŠëŠ” ëœë¤í•œ ì½”ë“œ ìƒì„±
 		while (true) {
 			boolean dup = true;
 			Set<Integer> keys = this.items.keySet();
@@ -39,12 +39,12 @@ public class ItemManager { // ¸ğµç ¾ÆÀÌÅÛµéÀ» ¸ğ¾Æ³õÀº Àå¼Ò
 	}
 
 	private void printItemMenu() {
-		System.out.println("=====[¾ÆÀÌÅÛ°ü¸®ÀÚ]=====");
-		System.out.println("1. ¹«±â Ãß°¡");
-		System.out.println("2. ¹æ¾î±¸ Ãß°¡");
-		System.out.println("3. ¹İÁö Ãß°¡");
-		System.out.println("4. Æ÷¼Ç Ãß°¡");
-		System.out.println("5. µÚ·Î°¡±â");
+		System.out.println("=====[ì•„ì´í…œê´€ë¦¬ì]=====");
+		System.out.println("1. ë¬´ê¸° ì¶”ê°€");
+		System.out.println("2. ë°©ì–´êµ¬ ì¶”ê°€");
+		System.out.println("3. ë°˜ì§€ ì¶”ê°€");
+		System.out.println("4. í¬ì…˜ ì¶”ê°€");
+		System.out.println("5. ë’¤ë¡œê°€ê¸°");
 	}
 
 	private int selItemMenu() {
@@ -52,16 +52,16 @@ public class ItemManager { // ¸ğµç ¾ÆÀÌÅÛµéÀ» ¸ğ¾Æ³õÀº Àå¼Ò
 
 		if (sel == ADDWEAPON) {
 			itemDAO.addWeapon(rCode());
-			System.out.println("¹«±â°¡ Ãß°¡µÇ¾ú½À´Ï´Ù");
+			System.out.println("ë¬´ê¸°ê°€ ì¶”ê°€ë˜ì—ˆìŠµë‹ˆë‹¤");
 		} else if (sel == ADDARMOUR) {
 			itemDAO.addArmour(rCode());
-			System.out.println("¹æ¾î±¸°¡ Ãß°¡µÇ¾ú½À´Ï´Ù");
+			System.out.println("ë°©ì–´êµ¬ê°€ ì¶”ê°€ë˜ì—ˆìŠµë‹ˆë‹¤");
 		} else if (sel == ADDRING) {
 			itemDAO.addRing(rCode());
-			System.out.println("¸µÀÌ Ãß°¡µÇ¾ú½À´Ï´Ù");
+			System.out.println("ë§ì´ ì¶”ê°€ë˜ì—ˆìŠµë‹ˆë‹¤");
 		} else if (sel == ADDPOTION) {
 			itemDAO.addPotion(rCode());
-			System.out.println("Æ÷¼ÇÀÌ Ãß°¡µÇ¾ú½À´Ï´Ù");
+			System.out.println("í¬ì…˜ì´ ì¶”ê°€ë˜ì—ˆìŠµë‹ˆë‹¤");
 		} else if (sel == BACK) {
 			return BACK;
 		}
@@ -72,7 +72,7 @@ public class ItemManager { // ¸ğµç ¾ÆÀÌÅÛµéÀ» ¸ğ¾Æ³õÀº Àå¼Ò
 	public void printItems() {
 		Set<Integer> keys = this.items.keySet();
 
-		System.out.println("========== ¾ÆÀÌÅÛ Á¾·ù ==========");
+		System.out.println("========== ì•„ì´í…œ ì¢…ë¥˜ ==========");
 		for (Integer key : keys) {
 			Item item = this.items.get(key);
 

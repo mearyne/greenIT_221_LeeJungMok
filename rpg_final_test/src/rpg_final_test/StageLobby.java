@@ -6,7 +6,7 @@ public class StageLobby extends Stage {
 	private ArrayList<Stage> stageList = GameManager.stageList;
 
 	public StageLobby() {
-		super("·Îºñ");
+		super("ë¡œë¹„");
 	}
 
 	@Override
@@ -27,7 +27,7 @@ public class StageLobby extends Stage {
 	}
 
 	private void printStage() {
-		System.out.println("==== ¿òÁ÷ÀÏ °÷À» ÀÔ·ÂÇÏ¼¼¿ä ====");
+		System.out.println("==== ì›€ì§ì¼ ê³³ì„ ì…ë ¥í•˜ì„¸ìš” ====");
 		for (int i = 1; i < this.stageList.size(); i++) {
 			System.out.printf("%d. %s\n", i, this.stageList.get(i).getName());
 		}
@@ -35,7 +35,7 @@ public class StageLobby extends Stage {
 	}
 
 	private int selStage() {
-		System.out.print("¼±ÅÃ :");
+		System.out.print("ì„ íƒ :");
 		int sel = GameManager.scan.nextInt();
 
 		if (sel >= 0 && sel < this.stageList.size()) {

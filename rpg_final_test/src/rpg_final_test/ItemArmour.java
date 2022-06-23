@@ -1,12 +1,12 @@
 package rpg_final_test;
 
 public class ItemArmour extends Item {
-	private int plusDef; // Ãß°¡µÇ´Â ¹æ¾î·Â
+	private int plusDef; // ì¶”ê°€ë˜ëŠ” ë°©ì–´ë ¥
 
 	public ItemArmour(int itemCode, int plusDef) {
 		super.setItemCode(itemCode);
 		this.plusDef = plusDef;
-		super.setName(String.format("¹æ¾î±¸[+%d]", plusDef));
+		super.setName(String.format("ë°©ì–´êµ¬[+%d]", plusDef));
 		super.setType(ARMOUR);
 	}
 

@@ -4,7 +4,7 @@ public class Item {
 	private int itemCode;
 
 	private String name;
-	private int type; // ÇØ´ç ¾ÆÀÌÅÛÀÇ Å¸ÀÔ
+	private int type; // í•´ë‹¹ ì•„ì´í…œì˜ íƒ€ì…
 
 	public static final int WEAPON = 1;
 	public static final int ARMOUR = 2;
@@ -12,7 +12,7 @@ public class Item {
 	public static final int POTION = 4;
 
 	public Item() {
-		this.name = "ºñ¾îÀÖÀ½";
+		this.name = "ë¹„ì–´ìˆìŒ";
 	}
 
 	public int getItemCode() {
@@ -44,3 +44,4 @@ public class Item {
 		return item;
 	}
 }
+

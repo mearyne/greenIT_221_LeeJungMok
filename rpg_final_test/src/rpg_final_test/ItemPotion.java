@@ -1,11 +1,11 @@
 package rpg_final_test;
 
 public class ItemPotion extends Item {
-	private int healing; // È¸º¹·®
+	private int healing; // íšŒë³µëŸ‰
 
 	public ItemPotion(int itemCode, int healing) {
 		super.setItemCode(itemCode);
-		super.setName(String.format("Èú¸µÆ÷¼Ç[%d]", healing));
+		super.setName(String.format("íë§í¬ì…˜[%d]", healing));
 		super.setType(POTION);
 		this.healing = healing;
 	}

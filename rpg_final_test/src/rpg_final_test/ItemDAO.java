@@ -4,24 +4,24 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ItemDAO {
-	public static Map<Integer, Item> items = new HashMap<>(); // Áßº¹µÇ´Â ¾ÆÀÌÅÛµµ »ó°ü¾øÀÌ ¸ğµç Á¾·ùÀÇ ¾ÆÀÌÅÛÀ» ¸ğ¾Æ³õ´Â´Ù
+	public static Map<Integer, Item> items = new HashMap<>(); // ì¤‘ë³µë˜ëŠ” ì•„ì´í…œë„ ìƒê´€ì—†ì´ ëª¨ë“  ì¢…ë¥˜ì˜ ì•„ì´í…œì„ ëª¨ì•„ë†“ëŠ”ë‹¤
 
 	public void addWeapon(int rCode) {
-		System.out.print("Ãß°¡ÇÒ ¹«±â °ø°İ·Â ÀÔ·Â: ");
+		System.out.print("ì¶”ê°€í•  ë¬´ê¸° ê³µê²©ë ¥ ì…ë ¥: ");
 		int input = GameManager.scan.nextInt();
 
 		if (input > 0) {
 			Item weapon = new ItemWeapon(rCode, input);
 
-			UnitPlayer.getInstance().getInventory().put(rCode, weapon); // ÀÎº¥Åä¸®¿¡ ÀúÀå
-			items.put(rCode, weapon); // ¾ÆÀÌÅÛDAO¿¡ ÀúÀå
+			UnitPlayer.getInstance().getInventory().put(rCode, weapon); // ì¸ë²¤í† ë¦¬ì— ì €ì¥
+			items.put(rCode, weapon); // ì•„ì´í…œDAOì— ì €ì¥
 		} else {
-			System.out.println("¹«±â °ø°İ·ÂÀÌ ³Ê¹« ³·½À´Ï´Ù");
+			System.out.println("ë¬´ê¸° ê³µê²©ë ¥ì´ ë„ˆë¬´ ë‚®ìŠµë‹ˆë‹¤");
 		}
 	}
 
 	public void addArmour(int rCode) {
-		System.out.println("Ãß°¡ÇÒ ¹æ¾î±¸ ¹æ¾î·Â ÀÔ·Â :");
+		System.out.println("ì¶”ê°€í•  ë°©ì–´êµ¬ ë°©ì–´ë ¥ ì…ë ¥ :");
 		int input = GameManager.scan.nextInt();
 
 		if (input > 0) {
@@ -33,9 +33,9 @@ public class ItemDAO {
 	}
 
 	public void addRing(int rCode) {
-		System.out.println("Ãß°¡ÇÒ ¸µÀÇ °ø°İ·Â ÀÔ·Â :");
+		System.out.println("ì¶”ê°€í•  ë§ì˜ ê³µê²©ë ¥ ì…ë ¥ :");
 		int inputAtk = GameManager.scan.nextInt();
-		System.out.println("Ãß°¡ÇÒ ¸µÀÇ ¹æ¾î·Â ÀÔ·Â :");
+		System.out.println("ì¶”ê°€í•  ë§ì˜ ë°©ì–´ë ¥ ì…ë ¥ :");
 		int inputDef = GameManager.scan.nextInt();
 
 		if (inputAtk >= 0 && inputDef >= 0 && (inputAtk == 0 && inputDef == 0)) {
@@ -48,7 +48,7 @@ public class ItemDAO {
 	}
 
 	public void addPotion(int rCode) {
-		System.out.println("Ãß°¡ÇÒ Æ÷¼ÇÀÇ Èú ¼öÄ¡ ÀÔ·Â :");
+		System.out.println("ì¶”ê°€í•  í¬ì…˜ì˜ í ìˆ˜ì¹˜ ì…ë ¥ :");
 		int input = GameManager.scan.nextInt();
 
 		if (input > 0) {

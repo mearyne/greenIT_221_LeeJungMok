@@ -1,6 +1,6 @@
 package rpg_final_test;
 
-public abstract class Unit { // ¸ğµç À¯´ÖµéÀÇ ºÎ¸ğÅ¬·¡½º
+public abstract class Unit { // ëª¨ë“  ìœ ë‹›ë“¤ì˜ ë¶€ëª¨í´ë˜ìŠ¤
 	private String name;
 	private int hp;
 	private int atk;
@@ -71,9 +71,11 @@ public abstract class Unit { // ¸ğµç À¯´ÖµéÀÇ ºÎ¸ğÅ¬·¡½º
 
 	public void printWearing() {
 		System.out.printf("[%s]\n", this.name);
-		System.out.printf("¤¤%s\n", this.weapon.getName());
-		System.out.printf("¤¤%s\n", this.armour.getName());
-		System.out.printf("¤¤%s\n", this.ring.getName());
+		System.out.printf("ã„´%s\n", this.weapon.getName());
+		System.out.printf("ã„´%s\n", this.armour.getName());
+		System.out.printf("ã„´%s\n", this.ring.getName());
 
 	}
 }
+
+
