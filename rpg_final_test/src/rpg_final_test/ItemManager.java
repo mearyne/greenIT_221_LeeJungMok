@@ -22,7 +22,7 @@ public class ItemManager { // 모든 아이템들을 모아놓은 장소
 		}
 	}
 
-	private int rCode() { // 아이템DAO에 존재하지 않는 랜덤한 코드 생성
+	public int rCode() { // 아이템DAO에 존재하지 않는 랜덤한 코드 생성
 		while (true) {
 			boolean dup = true;
 			Set<Integer> keys = this.items.keySet();
@@ -38,30 +38,33 @@ public class ItemManager { // 모든 아이템들을 모아놓은 장소
 		}
 	}
 
-	private void printItemMenu() {
+	public void printItemMenu() {
 		System.out.println("=====[아이템관리자]=====");
 		System.out.println("1. 무기 추가");
 		System.out.println("2. 방어구 추가");
 		System.out.println("3. 반지 추가");
 		System.out.println("4. 포션 추가");
-		System.out.println("5. 뒤로가기");
+		System.out.println("0. 뒤로가기");
 	}
 
-	private int selItemMenu() {
+	public int selItemMenu() {
 		int sel = GameManager.scan.nextInt();
 
 		if (sel == ADDWEAPON) {
 			itemDAO.addWeapon(rCode());
 			System.out.println("무기가 추가되었습니다");
+
 		} else if (sel == ADDARMOUR) {
 			itemDAO.addArmour(rCode());
 			System.out.println("방어구가 추가되었습니다");
+
 		} else if (sel == ADDRING) {
 			itemDAO.addRing(rCode());
-			System.out.println("링이 추가되었습니다");
+
 		} else if (sel == ADDPOTION) {
 			itemDAO.addPotion(rCode());
 			System.out.println("포션이 추가되었습니다");
+
 		} else if (sel == BACK) {
 			return BACK;
 		}

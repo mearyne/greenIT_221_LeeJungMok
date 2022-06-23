@@ -35,7 +35,7 @@ public class Inventory extends Stage {
 
 	}
 
-	private void printInventory() {
+	public void printInventory() {
 		Set<Integer> keys = this.inventory.keySet();
 		System.out.println("========== 인벤토리 ==========");
 		for (Integer key : keys) {
@@ -75,8 +75,5 @@ public class Inventory extends Stage {
 		return sel;
 	}
 
-	private void remove() {
-
-	}
 
 }

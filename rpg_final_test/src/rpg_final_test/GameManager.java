@@ -19,6 +19,7 @@ public class GameManager { // 게임의 전체적인 통괄관리자
 		stageList.add(new StageShop());
 		stageList.add(new Inventory());
 		stageList.add(new BattleStage());
+		stageList.add(new StageItemManager());
 
 		// 파티 배열에 파티원들 추가하기
 		UnitParty.party.add(new UnitHealer());

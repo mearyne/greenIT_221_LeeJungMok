@@ -13,10 +13,13 @@ public class ItemDAO {
 		if (input > 0) {
 			Item weapon = new ItemWeapon(rCode, input);
 
-			UnitPlayer.getInstance().getInventory().put(rCode, weapon); // 인벤토리에 저장
-			items.put(rCode, weapon); // 아이템DAO에 저장
+//			UnitPlayer.getInstance().getInventory().put(rCode, weapon); // 인벤토리에 저장
+//			items.put(rCode, weapon); // 아이템DAO에 저장
+			addItem(rCode, weapon);
+
+			System.out.println(weapon.getName() + "추가에 성공했습니다");
 		} else {
-			System.out.println("무기 공격력이 너무 낮습니다");
+			System.out.println("추가 실패했습니다");
 		}
 	}
 
@@ -27,9 +30,15 @@ public class ItemDAO {
 		if (input > 0) {
 			Item armour = new ItemArmour(rCode, input);
 
-			UnitPlayer.getInstance().getInventory().put(rCode, armour);
-			items.put(rCode, armour);
+//			UnitPlayer.getInstance().getInventory().put(rCode, armour);
+//			items.put(rCode, armour);
+
+			addItem(rCode, armour);
+			System.out.println(armour.getName() + "이 추가되었습니다");
+		} else {
+			System.out.println("추가에 실패했습니다");
 		}
+
 	}
 
 	public void addRing(int rCode) {
@@ -38,11 +47,17 @@ public class ItemDAO {
 		System.out.println("추가할 링의 방어력 입력 :");
 		int inputDef = GameManager.scan.nextInt();
 
-		if (inputAtk >= 0 && inputDef >= 0 && (inputAtk == 0 && inputDef == 0)) {
+		if ((inputAtk >= 0 || inputDef >= 0) && (inputAtk != 0 && inputDef != 0)) {
 			Item ring = new ItemRing(rCode, inputAtk, inputDef);
 
-			UnitPlayer.getInstance().getInventory().put(rCode, ring);
-			items.put(rCode, ring);
+//			UnitPlayer.getInstance().getInventory().put(rCode, ring);
+//			items.put(rCode, ring);
+			addItem(rCode, ring);
+
+			System.out.println(ring.getName() + "이 추가되었습니다");
+
+		} else {
+			System.out.println("링 추가에 실패했습니다");
 		}
 
 	}
@@ -54,10 +69,20 @@ public class ItemDAO {
 		if (input > 0) {
 			Item potion = new ItemPotion(rCode, input);
 
-			UnitPlayer.getInstance().getInventory().put(rCode, potion);
-			items.put(rCode, potion);
+//			UnitPlayer.getInstance().getInventory().put(rCode, potion);
+//			items.put(rCode, potion);
+
+			addItem(rCode, potion);
+			System.out.println("포션이 추가되었습니다");
+		} else {
+			System.out.println("포션추가가 실패했습니다");
 		}
 
+	}
+
+	public void addItem(int rCode, Item item) {
+		UnitPlayer.getInstance().getInventory().put(rCode, item); // 인벤토리에 저장
+		items.put(rCode, item); // 아이템DAO에 저장
 	}
 
 }
