@@ -71,8 +71,9 @@ public class StageShop extends Stage {
 
 		if (sel >= 0 && sel < shopList.size()) {
 			// 내 인벤토리에 저장
-			Item item = shopList.get(sel);
-			itemDAO.addItem(itemManager.rCode(), item);
+			Item item = copyItem(shopList.get(sel));
+
+			itemDAO.addItem(item.getItemCode(), item);
 			System.out.println(item.getName() + "을 구매했습니다");
 		}
 	}
@@ -81,6 +82,47 @@ public class StageShop extends Stage {
 		for (int i = 0; i < shopList.size(); i++) {
 			System.out.printf("%d. %s\n", shopList.get(i).getItemCode(), shopList.get(i).getName());
 		}
+	}
+
+	private Item copyItem(Item item) {
+
+		int rCode = itemManager.rCode();
+
+		if (item.getType() == Item.WEAPON) {
+			ItemWeapon weapon = (ItemWeapon) item;
+			int atk = weapon.getPlusAtk();
+
+			ItemWeapon copy = new ItemWeapon(rCode, atk);
+			return copy;
+
+		} else if (item.getType() == Item.ARMOUR) {
+			ItemArmour armour = (ItemArmour) item;
+			int def = armour.getPlusDef();
+
+			ItemArmour copy = new ItemArmour(rCode, def);
+			return copy;
+
+		} else if (item.getType() == Item.RING) {
+			ItemRing ring = (ItemRing) item;
+
+			int atk = ring.getPlusAtk();
+			int def = ring.getPlusDef();
+
+			ItemRing copy = new ItemRing(rCode, atk, def);
+			return copy;
+
+		} else if (item.getType() == Item.POTION) {
+			ItemPotion potion = (ItemPotion) item;
+
+			int healing = potion.getHealing();
+
+			ItemPotion copy = new ItemPotion(rCode, healing);
+			return copy;
+
+		}
+
+		return null;
+
 	}
 
 }

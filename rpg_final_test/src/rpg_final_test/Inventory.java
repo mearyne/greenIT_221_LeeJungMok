@@ -18,7 +18,6 @@ public class Inventory extends Stage {
 
 	@Override
 	public void play() {
-		// TODO Auto-generated method stub
 		while (true) {
 			printMenu();
 			int sel = selMenu();
@@ -34,10 +33,10 @@ public class Inventory extends Stage {
 	}
 
 	public void printInventory() {
-		Set<Integer> keys = this.inventory.keySet();
+		Set<Integer> keys = inventory.keySet();
 		System.out.println("========== 인벤토리 ==========");
 		for (Integer key : keys) {
-			System.out.printf("%d. %s\n", this.inventory.get(key).getItemCode(), this.inventory.get(key).getName());
+			System.out.printf("%d. %s\n", key, inventory.get(key).getName());
 		}
 	}
 
@@ -60,10 +59,16 @@ public class Inventory extends Stage {
 
 		} else if (sel == DRINKPOTION) {
 			int selItem = selItem();
-			Item item = inventory.get(selItem);
+			Item item = inventory.get(selItem); // 포션 아이템 선택함
 
 			if (item.getType() == Item.POTION) {
-				
+				party.printParty();
+				int selParty = party.selParty();
+
+				if (selParty == -1) {
+					drinkpotion(item, selParty);
+				}
+
 			} else {
 				System.out.println("선택한 아이템은 포션이 아닙니다");
 			}
@@ -71,6 +76,17 @@ public class Inventory extends Stage {
 		}
 
 		return sel;
+	}
+
+	private void drinkpotion(Item item, int selParty) {
+		Unit party = UnitParty.partys.get(selParty);
+		ItemPotion potion = (ItemPotion) item;
+
+		int resultHp = party.getHp() + potion.getHealing();
+		if (resultHp > party.getMaxHp())
+			party.setHp(party.getMaxHp());
+		party.setHp(resultHp);
+
 	}
 
 	private void selEquip() {
@@ -82,77 +98,81 @@ public class Inventory extends Stage {
 			int selParty = party.selParty();
 
 			if (selParty != -1) {
-				Item item = inventory.get(selItem);
-				equipItem(selParty, item);
+				System.out.println(UnitParty.partys.get(selParty).getName() + "를 선택했습니다");
+				Item item = ItemDAO.items.get(selItem);
+
+				equipItem(selParty, item); // 이 아이템은 종합데이터베이스안에 있는 아이템이다
 
 			}
-		} else {
-			System.out.println("일치하는 아이템이 없습니다");
 		}
 	}
 
 	private void selUnEquip() {
-		printInventory();
-		int selItem = selItem();
+		party.printParty();
+		int selParty = party.selParty();
 
-		if (selItem != QUIT) {
-			party.printParty();
-			int selParty = party.selParty();
+		if (selParty != -1) {
+			// TODO 1.무기 2.방어구 3.링 출력
+			System.out.println("해제할 부위 선택");
+			System.out.println("1. 무기");
+			System.out.println("2. 방어구");
+			System.out.println("3. 링");
 
-			if (selParty != -1) {
-				int type = inventory.get(selItem).getType();
+			// TODO 부위선택
+			int sel = GameManager.scan.nextInt();
+			Item wearingItem = new Item();
 
-				unequipItem(type, selParty);
+			if (sel == Item.WEAPON)
+				wearingItem = UnitParty.partys.get(selParty).getWeapon();
+			else if (sel == Item.ARMOUR)
+				wearingItem = UnitParty.partys.get(selParty).getArmour();
+			else if (sel == Item.RING)
+				wearingItem = UnitParty.partys.get(selParty).getRing();
+
+			if (wearingItem.getType() == 10000) {
+				System.out.println("장착중인 아이템이 없습니다");
+			} else {
+				int code = ItemDAO.items.get(wearingItem.getType()).getItemCode();
+				unequipItem(code, selParty);
 
 			}
-		} else {
-			System.out.println("일치하는 아이템이 없습니다");
+			// TODO 장비를 해제하면서 인벤토리에 추가함
 		}
 
 	}
 
 	private void equipItem(int selParty, Item item) {
-		// TODO Auto-generated method stub
-		unequipItem(item.getType(), selParty);
+		unequipItem(item.getItemCode(), selParty); // 내가 끼고있는 장비 해제
+
 		if (item.getType() == Item.WEAPON) {
-			UnitParty.partys.get(selParty).setWeapon(new Item());
+			UnitParty.partys.get(selParty).setWeapon(item);
 
 		} else if (item.getType() == Item.ARMOUR) {
-			UnitParty.partys.get(selParty).setArmour(new Item());
+			UnitParty.partys.get(selParty).setArmour(item);
 
 		} else if (item.getType() == Item.RING) {
-
-			UnitParty.partys.get(selParty).setRing(new Item());
+			UnitParty.partys.get(selParty).setRing(item);
 
 		}
 
 	}
 
-	private void unequipItem(int type, int selParty) {
+	private void unequipItem(int code, int selParty) {
 		// 선택한 파티원의 장비타입을 해제시킨다
 		// 해제된 장비는 인벤토리로 이동한다
-		if (type == Item.WEAPON) {
-			Item item = UnitParty.partys.get(selParty).getWeapon();
-			if (item.getName().equals("비어있음") == false) {
-				inventory.put(item.getItemCode(), item);
+		Item item = ItemDAO.items.get(code);
+		int type = item.getItemCode();
 
-			} else {
+		if (type == Item.WEAPON) { // 무기를 장착중
+			inventory.put(item.getItemCode(), item);
+			UnitParty.partys.get(selParty).setWeapon(new Item());
 
-				UnitParty.partys.get(selParty).setWeapon(new Item());
-			}
-
-		} else if (type == Item.ARMOUR) {
-			Item item = UnitParty.partys.get(selParty).getArmour();
-			if (item.getName().equals("비어있음") == false)
-				inventory.put(item.getItemCode(), item);
-
+		} else if (type == Item.ARMOUR) { // 아머를 장착중
+			inventory.put(item.getItemCode(), item);
 			UnitParty.partys.get(selParty).setArmour(new Item());
 
-		} else if (type == Item.RING) {
-			Item item = UnitParty.partys.get(selParty).getRing();
-			if (item.getName().equals("비어있음") == false)
-				inventory.put(item.getItemCode(), item);
-
+		} else if (type == Item.RING) { // 링을 장착중
+			inventory.put(item.getItemCode(), item);
 			UnitParty.partys.get(selParty).setRing(new Item());
 
 		}
@@ -163,8 +183,10 @@ public class Inventory extends Stage {
 		System.out.print("아이템 선택 :");
 		int sel = GameManager.scan.nextInt();
 
-		if (inventory.containsKey(sel))
+		if (inventory.containsKey(sel)) {
+			System.out.println(inventory.get(sel).getName() + "을 선택했습니다");
 			return sel;
+		}
 		System.out.println("일치하는 아이템이 없습니다");
 		return QUIT;
 	}

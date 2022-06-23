@@ -44,4 +44,15 @@ public class Item {
 		String item = String.format("%s", this.name);
 		return item;
 	}
+
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
+
+	public boolean chkEmpty() {
+		if (type == 10000)
+			return true;
+		return false;
+	}
 }
