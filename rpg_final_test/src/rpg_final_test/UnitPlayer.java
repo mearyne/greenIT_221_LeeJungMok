@@ -13,6 +13,8 @@ public class UnitPlayer extends Unit {
 		super.setHp(1000);
 		super.setAtk(50);
 		super.setDef(10);
+		super.setMaxHp(getHp());
+
 
 		super.setWeapon(new Item());
 		super.setArmour(new Item());

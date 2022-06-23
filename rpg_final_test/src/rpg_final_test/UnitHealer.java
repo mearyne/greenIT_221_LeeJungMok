@@ -7,6 +7,7 @@ public class UnitHealer extends Unit {
 		super.setHp(500);
 		super.setAtk(25);
 		super.setDef(10);
+		super.setMaxHp(getHp());
 
 		super.setWeapon(new Item());
 		super.setArmour(new Item());

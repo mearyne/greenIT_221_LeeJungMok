@@ -7,6 +7,7 @@ public class UnitWizard extends Unit {
 		super.setHp(700);
 		super.setAtk(60);
 		super.setDef(10);
+		super.setMaxHp(getHp());
 
 		super.setWeapon(new ItemWeapon());
 		super.setArmour(new Item());
