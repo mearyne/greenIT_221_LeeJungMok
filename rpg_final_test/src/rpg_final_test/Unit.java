@@ -3,6 +3,7 @@ package rpg_final_test;
 public abstract class Unit { // 모든 유닛들의 부모클래스
 	private String name;
 	private int hp;
+	private int maxHp;
 	private int atk;
 	private int def;
 	private Item weapon;
@@ -75,6 +76,14 @@ public abstract class Unit { // 모든 유닛들의 부모클래스
 		System.out.printf("ㄴ%s\n", this.armour.getName());
 		System.out.printf("ㄴ%s\n", this.ring.getName());
 
+	}
+
+	public int getMaxHp() {
+		return maxHp;
+	}
+
+	public void setMaxHp(int maxHp) {
+		this.maxHp = maxHp;
 	}
 }
 

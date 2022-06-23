@@ -1,8 +1,8 @@
 package rpg_final_test;
 
-public class BattleStage extends Stage {
+public class StageBattle extends Stage {
 
-	public BattleStage() {
+	public StageBattle() {
 		super("결투장");
 	}
 	

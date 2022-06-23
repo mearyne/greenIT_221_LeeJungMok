@@ -27,7 +27,7 @@ public class StageLobby extends Stage {
 	}
 
 	private void printStage() {
-		System.out.println("==== 움직일 곳을 입력하세요 ====");
+		System.out.println("========== 움직일 곳을 입력하세요 ==========");
 		for (int i = 1; i < this.stageList.size(); i++) {
 			System.out.printf("%d. %s\n", i, this.stageList.get(i).getName());
 		}

@@ -9,6 +9,11 @@ public class ItemWeapon extends Item {
 		super.setType(WEAPON);
 		super.setName(String.format("무기[+%d]", plusAtk));
 	}
+	
+	public ItemWeapon() {
+		super();
+		plusAtk = 0;
+	}
 
 	public int getPlusAtk() {
 		return plusAtk;

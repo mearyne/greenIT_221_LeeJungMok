@@ -12,7 +12,8 @@ public class Item {
 	public static final int POTION = 4;
 
 	public Item() {
-		this.name = "비어있음";
+		name = "비어있음";
+		type = 10000;
 	}
 
 	public int getItemCode() {
@@ -44,4 +45,3 @@ public class Item {
 		return item;
 	}
 }
-
