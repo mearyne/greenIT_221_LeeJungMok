@@ -61,7 +61,7 @@ public class Inventory extends Stage {
 			int selItem = selItem();
 			Item item = inventory.get(selItem); // 포션 아이템 선택함
 
-			if (item.getType() == Item.POTION) {
+			if (item != null && item.getType() == Item.POTION) {
 				party.printParty();
 				int selParty = party.selParty();
 
@@ -132,11 +132,9 @@ public class Inventory extends Stage {
 			if (wearingItem.getType() == 10000) {
 				System.out.println("장착중인 아이템이 없습니다");
 			} else {
-				int code = ItemDAO.items.get(wearingItem.getType()).getItemCode();
-				unequipItem(code, selParty);
+				unequipItem(wearingItem.getItemCode(), selParty);
 
 			}
-			// TODO 장비를 해제하면서 인벤토리에 추가함
 		}
 
 	}
@@ -154,26 +152,29 @@ public class Inventory extends Stage {
 			UnitParty.partys.get(selParty).setRing(item);
 
 		}
+		inventory.remove(item.getItemCode());
 
 	}
 
-	private void unequipItem(int code, int selParty) {
+	private void unequipItem(int code, int selParty) { // code는 입고있는 장비의 코드이다
 		// 선택한 파티원의 장비타입을 해제시킨다
 		// 해제된 장비는 인벤토리로 이동한다
 		Item item = ItemDAO.items.get(code);
-		int type = item.getItemCode();
+		int type = item.getType();
+
+		Item empty = new Item();
 
 		if (type == Item.WEAPON) { // 무기를 장착중
 			inventory.put(item.getItemCode(), item);
-			UnitParty.partys.get(selParty).setWeapon(new Item());
+			UnitParty.partys.get(selParty).setWeapon(empty);
 
 		} else if (type == Item.ARMOUR) { // 아머를 장착중
 			inventory.put(item.getItemCode(), item);
-			UnitParty.partys.get(selParty).setArmour(new Item());
+			UnitParty.partys.get(selParty).setArmour(empty);
 
 		} else if (type == Item.RING) { // 링을 장착중
 			inventory.put(item.getItemCode(), item);
-			UnitParty.partys.get(selParty).setRing(new Item());
+			UnitParty.partys.get(selParty).setRing(empty);
 
 		}
 
