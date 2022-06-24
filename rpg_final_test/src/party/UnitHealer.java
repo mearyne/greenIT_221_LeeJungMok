@@ -1,6 +1,8 @@
 package party;
 
-import item.Item;
+import item.ItemArmour;
+import item.ItemRing;
+import item.ItemWeapon;
 import stage.StageBattle;
 
 public class UnitHealer extends UnitTeam {
@@ -15,9 +17,9 @@ public class UnitHealer extends UnitTeam {
 		super.setTeam(true);
 		super.setSpeed(40);
 
-		super.setWeapon(new Item());
-		super.setArmour(new Item());
-		super.setRing(new Item());
+		super.setWeapon(new ItemWeapon());
+		super.setArmour(new ItemArmour());
+		super.setRing(new ItemRing());
 	}
 
 	@Override
@@ -36,6 +38,7 @@ public class UnitHealer extends UnitTeam {
 		target.setHp(target.getHp() + 300);
 
 		System.out.printf("힐러는 %s의 체력을 %d만큼 회복시켰다\n", target.getName(), healing);
+		delay(1000);
 	}
 
 }

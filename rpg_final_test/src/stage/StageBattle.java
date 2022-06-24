@@ -5,10 +5,6 @@ import java.util.ArrayList;
 import party.Unit;
 import party.UnitParty;
 import rpg_final_test.GameManager;
-//import monster.UnitGoblin;
-//import monster.UnitGolem;
-//import monster.UnitTroll;
-//import monster.UnitOrc;
 
 public class StageBattle extends Stage {
 	public static ArrayList<Unit> battleUnits = new ArrayList<>();
@@ -30,7 +26,7 @@ public class StageBattle extends Stage {
 			printBattle();
 			printTurnArr(turn);
 
-			battleUnits.get(turn++).attack();
+			battleUnits.get(turnArr[turn++]).attack();
 			if (turn == battleUnits.size())
 				turn = 0;
 
@@ -51,21 +47,48 @@ public class StageBattle extends Stage {
 
 	}
 
+	private void calculateTurnArr() {
+		turnArr = new int[battleUnits.size()];
+		Integer[] temp = new Integer[battleUnits.size()];
+		for (int i = 0; i < temp.length; i++) {
+			temp[i] = battleUnits.get(i).getSpeed();
+		}
+
+		for (int i = 0; i < temp.length; i++) {
+			int min = temp[i];
+			int minIdx = i;
+			for (int j = 0; j < temp.length; j++) {
+				if (min > temp[j]) {
+					min = temp[j];
+					minIdx = j;
+				}
+			}
+			turnArr[i] = minIdx;
+			temp[minIdx] = 1000;
+		}
+
+	}
+
 	private void printTurnArr(int turn) {
-		System.out.print("순서 : ");
+		System.out.print("순서 -> ");
 		for (int i = 0; i < turnArr.length; i++) {
-			Unit unit = battleUnits.get(turnArr[i]);
-			if (turn == i) {
-				System.out.printf("%s(현재턴) ", unit.getName());
+			if (i == turn) {
+				System.out.printf("[%s] ", battleUnits.get(turnArr[i]).getName());
 			} else {
-				System.out.printf("%s ", unit.getName());
+				System.out.printf("%s ", battleUnits.get(turnArr[i]).getName());
 			}
 		}
 		System.out.println();
+
 	}
 
 	private void printBattle() {
+		boolean tmp = true;
 		for (Unit unit : battleUnits) {
+			if (unit.getTeam() == false && tmp == true) {
+				System.out.println();
+				tmp = false;
+			}
 			System.out.printf("[%s] %d/%d \n", unit.getName(), unit.getHp(), unit.getMaxHp());
 		}
 
@@ -75,13 +98,6 @@ public class StageBattle extends Stage {
 		// 적들이 전부 죽으면 게임종료
 		int cnt = 0;
 		for (Unit unit : battleUnits) {
-			// 용사가 죽으면 게임종료
-//			if (UnitPlayer.getInstance().getHp() <= 0) {
-//				System.out.println("용사가 사망했습니다");
-//				System.out.println("-Game Over-");
-//				System.exit(0);
-//			}
-
 			if (unit.getTeam() == false) {
 				cnt++;
 			}
@@ -94,35 +110,21 @@ public class StageBattle extends Stage {
 		return false;
 	}
 
-	private void calculateTurnArr() {
-		int n = 0;
-		int min = battleUnits.get(0).getSpeed();
-		int minIdx = 0;
-		for (int i = 0; i < battleUnits.size(); i++) {
-			for (int j = 0; j < battleUnits.size(); j++) {
-				if (min > battleUnits.get(j).getSpeed()) {
-					min = battleUnits.get(j).getSpeed();
-					minIdx = j;
-				}
-			}
-
-			turnArr[n++] = minIdx;
-
-		}
-	}
-
 	@Override
 	public void init() {
 		addPartyInBattle();
 		addRandMonsterInBattle();
-		turnArr = new int[battleUnits.size()];
 
 	}
 
 	private void addPartyInBattle() {
+		// TODO 주소값을 넣는건 어떤가? 넣었다. 실제로 어떻게 바뀌는지 확인 바람
 		ArrayList<Unit> partys = UnitParty.partys;
+		int n = 0;
+
 		for (Unit party : partys) {
 			battleUnits.add(party);
+			battleUnits.set(n, partys.get(n++));
 		}
 
 	}

@@ -16,9 +16,10 @@ public class UnitTeam extends Unit {
 	@Override
 	public void normalAttack() {
 		printEnemyList();
-		int sel = selEnemy(); // 유효한 몬스터를 선택했을때만 반환시킨다
+		int sel = selEnemy() + 2; // 유효한 몬스터를 선택했을때만 반환시킨다
 
 		Unit enemy = battleUnits.get(sel);
+		calculateMyFinalAtk();
 		normalAttack(enemy);
 	}
 

@@ -25,6 +25,7 @@ public class UnitTroll extends UnitMonster {
 		setHp(getHp() + healing);
 
 		System.out.printf("트롤은 %d만큼 체력을 회복했다!", healing);
+		delay(1000);
 	}
 
 }

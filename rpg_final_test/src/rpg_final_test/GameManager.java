@@ -34,9 +34,9 @@ public class GameManager { // 게임의 전체적인 통괄관리자
 		stageList.add(new StageItemManager());
 
 		// 파티 배열에 파티원들 추가하기
-		UnitParty.partys.add(new UnitHealer());
-		UnitParty.partys.add(new UnitWizard());
 		UnitParty.partys.add(UnitPlayer.getInstance());
+		UnitParty.partys.add(new UnitWizard());
+		UnitParty.partys.add(new UnitHealer());
 	}
 
 	public void run() {

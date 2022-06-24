@@ -20,6 +20,7 @@ public class UnitOrc extends UnitMonster {
 	@Override
 	public void skill() {
 		System.out.println("오크는 강한 공격을 했다!");
+		delay(1000);
 
 		int cntAlly = 0;
 		for (Unit unit : StageBattle.battleUnits) {
