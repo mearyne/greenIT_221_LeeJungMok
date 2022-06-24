@@ -1,7 +1,15 @@
-package rpg_final_test;
+package stage;
 
 import java.util.Map;
 import java.util.Set;
+
+import item.Item;
+import item.ItemDAO;
+import item.ItemPotion;
+import party.Unit;
+import party.UnitParty;
+import party.UnitPlayer;
+import rpg_final_test.GameManager;
 
 public class Inventory extends Stage {
 	private UnitParty party = new UnitParty();

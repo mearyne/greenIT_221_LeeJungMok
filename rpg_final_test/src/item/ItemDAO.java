@@ -1,7 +1,10 @@
-package rpg_final_test;
+package item;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import party.UnitPlayer;
+import rpg_final_test.GameManager;
 
 public class ItemDAO {
 	public static Map<Integer, Item> items = new HashMap<>(); // 중복되는 아이템도 상관없이 모든 종류의 아이템을 모아놓는다

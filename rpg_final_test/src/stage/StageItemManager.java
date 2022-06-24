@@ -1,4 +1,6 @@
-package rpg_final_test;
+package stage;
+
+import item.ItemManager;
 
 public class StageItemManager extends Stage {
 	private ItemManager itemManager = new ItemManager();

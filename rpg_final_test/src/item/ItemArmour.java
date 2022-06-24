@@ -1,4 +1,4 @@
-package rpg_final_test;
+package item;
 
 public class ItemArmour extends Item {
 	private int plusDef; // 추가되는 방어력

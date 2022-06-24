@@ -1,4 +1,6 @@
-package rpg_final_test;
+package stage;
+
+import rpg_final_test.GameManager;
 
 public class StageForest extends Stage {
 
@@ -34,8 +36,7 @@ public class StageForest extends Stage {
 		int sel = GameManager.scan.nextInt();
 
 		if (sel == DEEPER) {
-			Stage stage = GameManager.stageList.get(BATTLE);
-			stage.init();
+			Stage stage = new StageBattle();
 			stage.play();
 		}
 

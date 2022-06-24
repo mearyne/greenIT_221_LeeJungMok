@@ -1,4 +1,4 @@
-package rpg_final_test;
+package stage;
 
 public abstract class Stage { // 제각기 스테이지들의 부모클래스
 	public static final int QUIT = 0;

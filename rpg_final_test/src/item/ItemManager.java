@@ -1,7 +1,9 @@
-package rpg_final_test;
+package item;
 
 import java.util.Map;
 import java.util.Set;
+
+import rpg_final_test.GameManager;
 
 public class ItemManager { // 모든 아이템들을 모아놓은 장소
 	private ItemDAO itemDAO = new ItemDAO();

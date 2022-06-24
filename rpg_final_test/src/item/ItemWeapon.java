@@ -1,4 +1,4 @@
-package rpg_final_test;
+package item;
 
 public class ItemWeapon extends Item {
 	private int plusAtk; // 공격력 증가량

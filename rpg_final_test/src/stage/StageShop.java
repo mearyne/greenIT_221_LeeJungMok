@@ -1,6 +1,15 @@
-package rpg_final_test;
+package stage;
 
 import java.util.ArrayList;
+
+import item.Item;
+import item.ItemArmour;
+import item.ItemDAO;
+import item.ItemManager;
+import item.ItemPotion;
+import item.ItemRing;
+import item.ItemWeapon;
+import rpg_final_test.GameManager;
 
 public class StageShop extends Stage {
 	private ItemManager itemManager = new ItemManager();

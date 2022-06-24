@@ -1,4 +1,4 @@
-package rpg_final_test;
+package item;
 
 public class ItemPotion extends Item {
 	private int healing; // 회복량

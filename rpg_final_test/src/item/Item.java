@@ -1,4 +1,4 @@
-package rpg_final_test;
+package item;
 
 public class Item {
 	private int itemCode;

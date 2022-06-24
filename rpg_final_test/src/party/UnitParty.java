@@ -1,6 +1,9 @@
-package rpg_final_test;
+package party;
 
 import java.util.ArrayList;
+
+import item.Item;
+import rpg_final_test.GameManager;
 
 public class UnitParty {
 

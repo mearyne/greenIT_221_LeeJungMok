@@ -1,6 +1,9 @@
-package rpg_final_test;
+package stage;
 
 import java.util.ArrayList;
+
+import party.Unit;
+import party.UnitParty;
 
 public class StageInn extends Stage {
 	private ArrayList<Unit> partys = UnitParty.partys;

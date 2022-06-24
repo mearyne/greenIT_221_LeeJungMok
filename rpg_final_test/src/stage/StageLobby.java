@@ -1,6 +1,8 @@
-package rpg_final_test;
+package stage;
 
 import java.util.ArrayList;
+
+import rpg_final_test.GameManager;
 
 public class StageLobby extends Stage {
 	private ArrayList<Stage> stageList = GameManager.stageList;

@@ -5,6 +5,18 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+import party.UnitHealer;
+import party.UnitParty;
+import party.UnitPlayer;
+import party.UnitWizard;
+import stage.Inventory;
+import stage.Stage;
+import stage.StageForest;
+import stage.StageInn;
+import stage.StageItemManager;
+import stage.StageLobby;
+import stage.StageShop;
+
 public class GameManager { // 게임의 전체적인 통괄관리자
 
 	public static Scanner scan = new Scanner(System.in);
