@@ -17,8 +17,14 @@ public class UnitGolem extends UnitMonster {
 
 	@Override
 	public void skill() {
+		System.out.println();
+		try {
+			Thread.sleep(500);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		System.out.println("골렘은 충격파를 가했다!");
-		
+
 		int cntAlly = 0;
 		for (Unit unit : StageBattle.battleUnits) {
 			if (unit.getTeam())

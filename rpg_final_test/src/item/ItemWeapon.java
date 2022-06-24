@@ -1,7 +1,6 @@
 package item;
 
 public class ItemWeapon extends Item {
-	private int plusAtk; // 공격력 증가량
 
 	public ItemWeapon(int itemCode, int plusAtk) {
 		super.setItemCode(itemCode);
@@ -9,7 +8,7 @@ public class ItemWeapon extends Item {
 		super.setType(WEAPON);
 		super.setName(String.format("무기[+%d]", plusAtk));
 	}
-	
+
 	public ItemWeapon() {
 		super();
 		plusAtk = 0;

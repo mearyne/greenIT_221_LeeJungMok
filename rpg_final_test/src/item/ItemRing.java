@@ -2,8 +2,6 @@
 package item;
 
 public class ItemRing extends Item {
-	private int plusAtk; // 공격력 증가량
-	private int plusDef; // 방어력 증가량
 
 	public ItemRing(int itemCode, int plusAtk, int plusDef) {
 		this.plusAtk = plusAtk;
@@ -11,6 +9,10 @@ public class ItemRing extends Item {
 		super.setItemCode(itemCode);
 		super.setName(String.format("반지[+%d, +%d]", plusAtk, plusDef));
 		super.setType(RING);
+	}
+	
+	public ItemRing() {
+		super();
 	}
 
 	public int getPlusAtk() {

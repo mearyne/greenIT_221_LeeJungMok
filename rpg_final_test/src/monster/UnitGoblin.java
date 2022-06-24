@@ -14,7 +14,14 @@ public class UnitGoblin extends UnitMonster {
 
 	@Override
 	public void skill() {
+		System.out.println();
+		try {
+			Thread.sleep(500);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		System.out.println("고블린은 딴짓을 하기 시작했다");
+		System.out.println();
 	}
 
 }

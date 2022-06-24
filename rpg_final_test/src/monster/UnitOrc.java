@@ -19,6 +19,11 @@ public class UnitOrc extends UnitMonster {
 
 	@Override
 	public void skill() {
+		try {
+			Thread.sleep(500);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		System.out.println("오크는 강한 공격을 했다!");
 
 		int cntAlly = 0;

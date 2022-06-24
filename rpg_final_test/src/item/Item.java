@@ -2,6 +2,9 @@ package item;
 
 public class Item {
 	private int itemCode;
+	
+	public int plusDef;
+	public int plusAtk;
 
 	private String name;
 	private int type; // 해당 아이템의 타입
@@ -43,11 +46,6 @@ public class Item {
 	public String printItem() {
 		String item = String.format("%s", this.name);
 		return item;
-	}
-
-	@Override
-	protected Object clone() throws CloneNotSupportedException {
-		return super.clone();
 	}
 
 	public boolean chkEmpty() {

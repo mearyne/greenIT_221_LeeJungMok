@@ -1,6 +1,7 @@
 package party;
 
 import item.Item;
+import item.ItemArmour;
 import item.ItemRing;
 import item.ItemWeapon;
 import rpg_final_test.GameManager;
@@ -26,8 +27,10 @@ public abstract class Unit { // 모든 유닛들의 부모클래스
 
 			if (sel == 1) {
 				normalAttack();
+				break;
 			} else if (sel == 2) {
 				skill();
+				break;
 			}
 
 		}
@@ -158,16 +161,32 @@ public abstract class Unit { // 모든 유닛들의 부모클래스
 	}
 
 	public void normalAttack(Unit enemy) {
-		System.out.printf("%s는 %s에게 %d의 데미지를 입혔다\n", getName(), enemy.getName(), getMyFinalAtk());
+		System.out.println();
+		System.out.printf("%s는 %s에게 %d의 데미지를 입혔다\n", getName(), enemy.getName(), getMyFinalAtk() - enemy.getDef());
+		System.out.println();
 		enemy.setHp(enemy.getHp() - (getMyFinalAtk() - enemy.getDef()));
+		try {
+			Thread.sleep(500);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 
 	public void calculateMyFinalAtk() {
 		ItemWeapon weapon = (ItemWeapon) getWeapon();
+
 		ItemRing ring = (ItemRing) getRing();
 
 		setMyFinalAtk(getAtk() + weapon.getPlusAtk() + ring.getPlusAtk());
 
+	}
+
+	public int getPlusAtk() {
+		return 0;
+	}
+
+	public int getPlusDef() {
+		return 0;
 	}
 
 }
