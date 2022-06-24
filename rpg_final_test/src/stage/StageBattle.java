@@ -22,7 +22,7 @@ public class StageBattle extends Stage {
 		while (true) {
 			calculateTurnArr();
 
-			System.out.println("========== 전투 ==========");
+			System.err.println("========== 전투 ==========");
 			printBattle();
 			printTurnArr(turn);
 
@@ -35,6 +35,8 @@ public class StageBattle extends Stage {
 				break;
 		}
 
+		battleUnits.clear();
+
 	}
 
 	private void deleteDeathUnit() {
@@ -42,6 +44,7 @@ public class StageBattle extends Stage {
 			if (battleUnits.get(i).getHp() <= 0) {
 				System.out.println(battleUnits.get(i).getName() + "가 죽었다!");
 				battleUnits.remove(i);
+				i--;
 			}
 		}
 
@@ -97,11 +100,21 @@ public class StageBattle extends Stage {
 	private boolean calculateEnd() {
 		// 적들이 전부 죽으면 게임종료
 		int cnt = 0;
+		int cntAlly = 0;
+
 		for (Unit unit : battleUnits) {
 			if (unit.getTeam() == false) {
 				cnt++;
+			} else {
+				cntAlly++;
 			}
 		}
+		if (cntAlly == 0) {
+			System.err.println("전투에서 패배했습니다");
+			System.err.println("-Game Over-");
+			System.exit(0);
+		}
+
 		if (cnt == 0) {
 			System.out.println("전투에서 승리했습니다");
 			return true;

@@ -4,8 +4,11 @@ import java.util.Map;
 import java.util.Set;
 
 import item.Item;
+import item.ItemArmour;
 import item.ItemDAO;
 import item.ItemPotion;
+import item.ItemRing;
+import item.ItemWeapon;
 import party.Unit;
 import party.UnitParty;
 import party.UnitPlayer;
@@ -120,13 +123,13 @@ public class Inventory extends Stage {
 		int selParty = party.selParty();
 
 		if (selParty != -1) {
-			// TODO 1.무기 2.방어구 3.링 출력
+			// 1.무기 2.방어구 3.링 출력
 			System.out.println("해제할 부위 선택");
 			System.out.println("1. 무기");
 			System.out.println("2. 방어구");
 			System.out.println("3. 링");
 
-			// TODO 부위선택
+			// 부위선택
 			int sel = GameManager.scan.nextInt();
 			Item wearingItem = new Item();
 
@@ -170,19 +173,17 @@ public class Inventory extends Stage {
 		Item item = ItemDAO.items.get(code);
 		int type = item.getType();
 
-		Item empty = new Item();
-
 		if (type == Item.WEAPON) { // 무기를 장착중
 			inventory.put(item.getItemCode(), item);
-			UnitParty.partys.get(selParty).setWeapon(empty);
+			UnitParty.partys.get(selParty).setWeapon(new ItemWeapon());
 
 		} else if (type == Item.ARMOUR) { // 아머를 장착중
 			inventory.put(item.getItemCode(), item);
-			UnitParty.partys.get(selParty).setArmour(empty);
+			UnitParty.partys.get(selParty).setArmour(new ItemArmour());
 
 		} else if (type == Item.RING) { // 링을 장착중
 			inventory.put(item.getItemCode(), item);
-			UnitParty.partys.get(selParty).setRing(empty);
+			UnitParty.partys.get(selParty).setRing(new ItemRing());
 
 		}
 

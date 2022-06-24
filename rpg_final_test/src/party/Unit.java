@@ -1,7 +1,6 @@
 package party;
 
 import item.Item;
-import item.ItemArmour;
 import item.ItemRing;
 import item.ItemWeapon;
 import rpg_final_test.GameManager;
@@ -165,11 +164,6 @@ public abstract class Unit { // 모든 유닛들의 부모클래스
 		delay(1000);
 
 		enemy.setHp(enemy.getHp() - (getMyFinalAtk() - enemy.getDef()));
-		try {
-			Thread.sleep(500);
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
 	}
 
 	public void calculateMyFinalAtk() {
