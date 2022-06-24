@@ -9,6 +9,7 @@ public abstract class Unit { // 모든 유닛들의 부모클래스
 	private Item weapon;
 	private Item armour;
 	private Item ring;
+	private boolean team;
 
 	public abstract void attack();
 
@@ -85,6 +86,12 @@ public abstract class Unit { // 모든 유닛들의 부모클래스
 	public void setMaxHp(int maxHp) {
 		this.maxHp = maxHp;
 	}
+
+	public boolean isTeam() {
+		return team;
+	}
+
+	public void setTeam(boolean team) {
+		this.team = team;
+	}
 }
-
-
