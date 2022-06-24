@@ -14,15 +14,17 @@ public class UnitTroll extends UnitMonster {
 	}
 
 	@Override
-	public void attack() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public void skill() {
-		// TODO Auto-generated method stub
+		int healing = 0;
+		if (getHp() + 300 > getMaxHp())
+			healing = getMaxHp() - getHp();
+		else {
+			healing = 300;
+		}
 
+		setHp(getHp() + healing);
+
+		System.out.printf("트롤은 %d만큼 체력을 회복했다!", healing);
 	}
 
 }

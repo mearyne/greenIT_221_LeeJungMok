@@ -92,10 +92,10 @@ public abstract class Unit { // 모든 유닛들의 부모클래스
 	}
 
 	public void printWearing() {
-		System.out.printf("[%s]\n", this.name);
-		System.out.printf("ㄴ%s\n", this.weapon.getName());
-		System.out.printf("ㄴ%s\n", this.armour.getName());
-		System.out.printf("ㄴ%s\n", this.ring.getName());
+		System.out.printf("[%s]\n", name);
+		System.out.printf("ㄴ%s\n", weapon.getName());
+		System.out.printf("ㄴ%s\n", armour.getName());
+		System.out.printf("ㄴ%s\n", ring.getName());
 
 	}
 
@@ -124,7 +124,7 @@ public abstract class Unit { // 모든 유닛들의 부모클래스
 	}
 
 	private void printAttackMenu() {
-		System.out.printf("[%s]의 차례입니다. \n");
+		System.out.printf("[%s]의 차례입니다. \n", name);
 		System.out.println("1. 공격");
 		System.out.println("2. 스킬");
 	}

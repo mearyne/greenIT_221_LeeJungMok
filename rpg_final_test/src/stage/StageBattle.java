@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import party.Unit;
 import party.UnitParty;
 import rpg_final_test.GameManager;
+//import monster.UnitGoblin;
+//import monster.UnitGolem;
+//import monster.UnitTroll;
+//import monster.UnitOrc;
 
 public class StageBattle extends Stage {
 	public static ArrayList<Unit> battleUnits = new ArrayList<>();
@@ -92,10 +96,9 @@ public class StageBattle extends Stage {
 
 	private void calculateTurnArr() {
 		int n = 0;
+		int min = battleUnits.get(0).getSpeed();
+		int minIdx = 0;
 		for (int i = 0; i < battleUnits.size(); i++) {
-			int min = battleUnits.get(0).getSpeed();
-			int minIdx = 0;
-
 			for (int j = 0; j < battleUnits.size(); j++) {
 				if (min > battleUnits.get(j).getSpeed()) {
 					min = battleUnits.get(j).getSpeed();
@@ -125,7 +128,7 @@ public class StageBattle extends Stage {
 	}
 
 	private void addRandMonsterInBattle() {
-		String path = "rpg_final_test.";
+		String path = "monster.";
 		String[] monsterNames = { "UnitOrc", "UnitGoblin", "UnitGolem", "UnitTroll" };
 
 		for (int i = 0; i < monsterNames.length; i++) {

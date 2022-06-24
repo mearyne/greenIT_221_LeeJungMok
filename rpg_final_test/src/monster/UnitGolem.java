@@ -1,5 +1,8 @@
 package monster;
 
+import party.Unit;
+import stage.StageBattle;
+
 public class UnitGolem extends UnitMonster {
 
 	public UnitGolem() {
@@ -13,14 +16,19 @@ public class UnitGolem extends UnitMonster {
 	}
 
 	@Override
-	public void attack() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public void skill() {
-		// TODO Auto-generated method stub
+		System.out.println("골렘은 충격파를 가했다!");
+		
+		int cntAlly = 0;
+		for (Unit unit : StageBattle.battleUnits) {
+			if (unit.getTeam())
+				cntAlly++;
+		}
+		for (int i = 0; i < cntAlly; i++) {
+			Unit ally = StageBattle.battleUnits.get(i);
+			normalAttack(ally);
+
+		}
 
 	}
 
