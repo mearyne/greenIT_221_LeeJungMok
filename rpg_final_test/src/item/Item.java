@@ -2,7 +2,7 @@ package item;
 
 public class Item {
 	private int itemCode;
-	
+
 	public int plusDef;
 	public int plusAtk;
 
@@ -53,4 +53,12 @@ public class Item {
 			return true;
 		return false;
 	}
+
+	@Override
+	public String toString() {
+		String data = "";
+		data = String.format("%d,%s,%d,%d,%d", itemCode, name, type, plusAtk, plusDef);
+		return data;
+	}
+
 }

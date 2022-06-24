@@ -10,6 +10,7 @@ import party.UnitParty;
 import party.UnitPlayer;
 import party.UnitWizard;
 import stage.Inventory;
+import stage.Save;
 import stage.Stage;
 import stage.StageForest;
 import stage.StageInn;
@@ -32,6 +33,7 @@ public class GameManager { // 게임의 전체적인 통괄관리자
 		stageList.add(new StageInn());
 		stageList.add(new Inventory());
 		stageList.add(new StageItemManager());
+		stageList.add(new Save());
 
 		// 파티 배열에 파티원들 추가하기
 		UnitParty.partys.add(UnitPlayer.getInstance());

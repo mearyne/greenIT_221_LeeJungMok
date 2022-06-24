@@ -191,4 +191,19 @@ public abstract class Unit { // 모든 유닛들의 부모클래스
 		}
 
 	}
+	
+	@Override
+	public String toString() {
+		String data = "";
+		data = String.format("%s,%d,%d,%d,%d", getName(), getHp(), getAtk(), getDef(), getSpeed());
+
+		if (getWeapon() != null)
+			data += "/" + weapon;
+		if (getArmour() != null)
+			data += "/" + armour;
+		if (getRing() != null)
+			data += "/" + ring;
+		
+		return data;
+	}
 }

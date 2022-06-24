@@ -7,6 +7,7 @@ import party.UnitParty;
 import rpg_final_test.GameManager;
 
 public class StageBattle extends Stage {
+	
 	public static ArrayList<Unit> battleUnits = new ArrayList<>();
 	private int[] turnArr; // 전투시에 전투 순서를 알려주는 배열
 

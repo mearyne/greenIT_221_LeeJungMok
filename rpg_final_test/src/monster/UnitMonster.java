@@ -4,7 +4,7 @@ import party.Unit;
 import rpg_final_test.GameManager;
 import stage.StageBattle;
 
-public class UnitMonster extends Unit {
+public abstract class UnitMonster extends Unit {
 	private final int SKILLABLE = 4; // 스킬이 발동할 확률 1/4
 	private final int ON = 0; // skill 발동
 
@@ -18,9 +18,7 @@ public class UnitMonster extends Unit {
 		}
 	}
 
-	@Override
-	public void skill() {
-	}
+	public abstract void skill();
 
 	@Override
 	public void normalAttack() {
