@@ -17,7 +17,7 @@ public class UnitGolem extends UnitMonster {
 
 	@Override
 	public void skill() {
-		
+
 		System.out.println("골렘은 충격파를 가했다!");
 		delay(1000);
 

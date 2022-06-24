@@ -10,7 +10,7 @@ import item.ItemWeapon;
 import stage.StageBattle;
 
 public class UnitPlayer extends UnitTeam {
-	
+
 	private static UnitPlayer instance = new UnitPlayer();
 
 	private Map<Integer, Item> inventory = new HashMap<>();
@@ -41,7 +41,6 @@ public class UnitPlayer extends UnitTeam {
 		enemy.setHp(enemy.getHp() - damage);
 
 		System.out.println("강공격!");
-		delay(1000);
 
 		System.out.printf("용사는 %s에게 %d의 데미지를 입혔다\n", enemy.getName(), damage);
 		delay(1000);

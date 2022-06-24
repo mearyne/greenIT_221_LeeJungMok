@@ -15,8 +15,6 @@ public class UnitGoblin extends UnitMonster {
 	@Override
 	public void skill() {
 		System.out.println();
-		
-		
 		System.out.println("고블린은 딴짓을 하기 시작했다");
 		delay(1000);
 	}

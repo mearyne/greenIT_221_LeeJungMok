@@ -36,6 +36,12 @@ public class UnitHealer extends UnitTeam {
 		}
 
 		target.setHp(target.getHp() + 300);
+		
+		try {
+			Thread.sleep(500);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 
 		System.out.printf("힐러는 %s의 체력을 %d만큼 회복시켰다\n", target.getName(), healing);
 		delay(1000);

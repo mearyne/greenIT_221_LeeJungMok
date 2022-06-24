@@ -165,6 +165,11 @@ public abstract class Unit { // 모든 유닛들의 부모클래스
 		delay(1000);
 
 		enemy.setHp(enemy.getHp() - (getMyFinalAtk() - enemy.getDef()));
+		try {
+			Thread.sleep(500);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 
 	public void calculateMyFinalAtk() {
@@ -184,6 +189,7 @@ public abstract class Unit { // 모든 유닛들의 부모클래스
 		return 0;
 	}
 
+<<<<<<< HEAD
 	public void delay(int sleep) {
 		System.out.println();
 		try {
@@ -192,4 +198,6 @@ public abstract class Unit { // 모든 유닛들의 부모클래스
 		}
 
 	}
+=======
+>>>>>>> branch 'main' of https://github.com/mearyne/greenIT_221_LeeJungMok.git
 }
