@@ -1,0 +1,38 @@
+@charset "UTF-8";
+#required {
+    color: green;
+}
+
+#unrequired {
+    color: grey;
+}
+
+body {
+    background-color: rgb(245, 246, 247);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+header {
+    width: 330px;
+    height: 64px;
+    background-image: url(https://ssl.pstatic.net/static/nid/join/m_logo_naver.png);
+}
+
+span {
+    color: red;
+}
+
+p {
+    overflow: scroll;
+    width: 500px;
+    height: 100px;
+    overflow: scroll;
+    border: 1px solid #b3b3b3;
+}
