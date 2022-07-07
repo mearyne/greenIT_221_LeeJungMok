@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.sun.jdi.Location"%>
 <%@page import="java.sql.Timestamp"%>
 <%@page import="board.BoardDTO"%>
@@ -24,7 +25,9 @@
 	if (codeList.size() != 0) {
 		for (Integer sqlCode : codeList) {
 			BoardDTO boardData = dao.bringBoardData(sqlCode);
-
+			
+			System.out.println(boardData + " : boardDataboardDataboardData");
+			
 			int no = boardData.getNo();
 			int code = boardData.getCode();
 			String title = boardData.getTitle();
@@ -32,11 +35,15 @@
 			int likeCnt = boardData.getLikeCnt();
 			Timestamp createAt = boardData.getCreateAt();
 			Timestamp modified = boardData.getModified();
+			
+			SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd HH:mm:ss");
+			String createAtString = sdf.format(createAt);
+			String modifiedString = sdf.format(modified);
 
 			// 테스트용
 			System.out.println(code);
 
-			string += String.format("<tr><td>%d</td><td>%d</td><td><div onclick='location.href=`boardView.jsp?code=%d`'>%s</div></td><td>%d</td><td>%d</td><td>%d</td><td>%d</td></tr>", no, code, code ,title, viewCnt, likeCnt, 0, 0);
+			string += String.format("<tr><td>%d</td><td>%d</td><td><div onclick='location.href=`boardView.jsp?code=%d`'>%s</div></td><td>%d</td><td>%d</td><td>%s</td><td>%s</td></tr>", no, code, code ,title, viewCnt, likeCnt, createAtString, modifiedString);
 			
 		}
 	}

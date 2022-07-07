@@ -20,6 +20,8 @@
 
 	int boardCode = Integer.parseInt(request.getParameter("code"));
 	BoardDTO data = dao.bringBoardData(boardCode);
+	
+	dao.increaseViewCnt(boardCode);
 	%>
 
 	<h1>GREEN BOARD</h1>
@@ -33,7 +35,7 @@
 			<input type="button" value="좋아요" onclick="alert(`좋아요!`); location.href=`boardLikePro.jsp?code=<%=boardCode%>`">
 
 			<!-- 수정하기를 누르면 해당 BoardDTO data를 가지고 수정하는 페이지로 넘어가야한다 -->
-			<input type="button" value="수정하기" onclick='alert(`수정했습니다`); location.href=`boardUpdateForm.jsp?code=<%=boardCode%>`'>
+			<input type="button" value="수정하기" onclick='location.href=`boardUpdateForm.jsp?code=<%=boardCode%>`'>
 
 			<!-- 수정하기를 누르면 해당 BoardDTO data를 가지고 삭제하는 페이지로 넘어가야한다 -->
 			<input type="button" value="삭제하기" onclick='alert(`삭제했습니다`); location.href=`boardDeletePro.jsp?code=<%=boardCode%>`'>

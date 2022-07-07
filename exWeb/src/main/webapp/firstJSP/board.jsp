@@ -20,15 +20,15 @@
 	<div class="boardListContainer">
 		<table border="1">
 			<thead>
-			<tr>
-				<th>no</th>
-				<th>code</th>
-				<th>title</th>
-				<th>viewCnt</th>
-				<th>likeCnt</th>
-				<th>createdAt</th>
-				<th>modifiedAt</th>
-			</tr>
+				<tr>
+					<th>no</th>
+					<th>code</th>
+					<th>title</th>
+					<th>viewCnt</th>
+					<th>likeCnt</th>
+					<th>createdAt</th>
+					<th>modifiedAt</th>
+				</tr>
 			</thead>
 			<tbody>
 				<%
@@ -36,9 +36,13 @@
 				out.println(string); // 게시글들이 일괄 추가된다
 				%>
 			
-			</tbody>
 		</table>
+		</tbody>
 	</div>
+		<form>
+			<input type="button" value="글 쓰기" onclick="location.href='boardWriteForm.jsp'">
+			<input type="button" value="새로고침" onclick="location.href=`boardPro.jsp`">
+		</form>
 	<script src="JS/board.js"></script>
 </body>
 
