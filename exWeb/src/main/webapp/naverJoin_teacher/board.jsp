@@ -35,6 +35,7 @@
 				String string = (String) session.getAttribute("hiddenString");
 				out.println(string); // 게시글들이 일괄 추가된다
 				%>
+			
 			</tbody>
 		</table>
 	</div>

@@ -15,7 +15,7 @@ public class BoardDAO {
 
 	private BoardDAO() {
 	}
-	
+
 	public static BoardDAO getInstance() {
 		return instance;
 	}
@@ -126,6 +126,29 @@ public class BoardDAO {
 		}
 
 		return arr;
+	}
+
+	public void clickLike(int code) {
+		try {
+
+			BoardDTO boardData = bringBoardData(code);
+			int likeNum = boardData.getLikeCnt() + 1;
+
+			// TEST
+			System.out.println("likeNum : " + likeNum);
+
+			// UPDATE board SET viewCnt = 12 WHERE code= 2222;
+			conn = DBManager.getConnection("firstJsp"); // 아래로 내린게 무슨 의미가 있지? conn = null이 되기 때문에 아래로 내려줘야한다
+			String updateLikeCnt_sql = "UPDATE board SET likeCnt = " + likeNum + " WHERE code= " + code;
+			pstmt = conn.prepareStatement(updateLikeCnt_sql);
+			pstmt.execute();
+
+			System.out.println("like 업데이트 성공");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("like 업데이트 실패");
+		}
+
 	}
 
 }
