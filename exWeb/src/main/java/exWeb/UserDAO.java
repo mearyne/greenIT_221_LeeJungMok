@@ -12,7 +12,7 @@ public class UserDAO {
 	// Data Access Object
 
 //	private ArrayList<UserDTO> list = null;
-	// À¯Àú °ü¸®°¡ µ¥ÀÌÅÍº£ÀÌ½º¿Í ¿¬µ¿µÇ¾îÀÖ¾î¾ß ÇÑ´Ù
+	// ìœ ì € ê´€ë¦¬ê°€ ë°ì´í„°ë² ì´ìŠ¤ì™€ ì—°ë™ë˜ì–´ìˆì–´ì•¼ í•œë‹¤
 
 //	private UserDAO() {
 //		list = new ArrayList<UserDTO>();
@@ -25,7 +25,7 @@ public class UserDAO {
 	}
 
 //	public int addUser(UserDTO userDto) {
-//		// Áßº¹ ¾ÆÀÌµğ È®ÀÎ ÈÄ, list ¿¡ Ãß°¡
+//		// ì¤‘ë³µ ì•„ì´ë”” í™•ì¸ í›„, list ì— ì¶”ê°€
 //
 //		if (checkDupl(userDto.getId())) {
 //			this.list.add(userDto);
@@ -44,7 +44,7 @@ public class UserDAO {
 //		return true;
 //	}
 //
-//	public boolean checkIdPw(String userId, String userPw) { // ·Î±×ÀÎÇÒ¶§ ÀÏÄ¡ÇÏ´Â ¾ÆÀÌµğ&ºñ¹Ğ¹øÈ£°¡ ÀÖ´ÂÁö È®ÀÎ
+//	public boolean checkIdPw(String userId, String userPw) { // ë¡œê·¸ì¸í• ë•Œ ì¼ì¹˜í•˜ëŠ” ì•„ì´ë””&ë¹„ë°€ë²ˆí˜¸ê°€ ìˆëŠ”ì§€ í™•ì¸
 //		for (UserDTO userDTO : this.list) {
 //			if (userDTO.getId().equals(userId) && userDTO.getPassword().equals(userPw)) {
 //				return true;
@@ -54,7 +54,7 @@ public class UserDAO {
 //
 //	}
 
-	// È¸¿øÃß°¡
+	// íšŒì›ì¶”ê°€
 
 	private Connection conn = null;
 	private ResultSet rs = null;
@@ -75,22 +75,22 @@ public class UserDAO {
 		}
 	}
 
-	public boolean checkIdPw(String id, String pw) { // ÀÔ·Â¹ŞÀº id, pw°¡ Á¦´ë·Î ÀÔ·ÂµÆÀ»¶§ MySQL¿¡¼­ °Ë»öÇØ¼­ ÀÖ´Ù¸é ¹İÈ¯ÇÑ´Ù
+	public boolean checkIdPw(String id, String pw) { // ì…ë ¥ë°›ì€ id, pwê°€ ì œëŒ€ë¡œ ì…ë ¥ëì„ë•Œ MySQLì—ì„œ ê²€ìƒ‰í•´ì„œ ìˆë‹¤ë©´ ë°˜í™˜í•œë‹¤
 		try {
 			getConnection();
 			pstmt = conn.prepareStatement("select id from users where id = '" + id + "' and password = '" + pw + "'");
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				System.out.println("°ª °¡Á®¿È");
+				System.out.println("ê°’ ê°€ì ¸ì˜´");
 				return true;
 			} else {
-				System.out.println("°ª ¸ø°¡Á®¿È");
+				System.out.println("ê°’ ëª»ê°€ì ¸ì˜´");
 				return false;
 			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("½ÇÇà¿¡ ½ÇÆĞÇÏ");
+			System.out.println("ì‹¤í–‰ì— ì‹¤íŒ¨í•˜");
 			return false;
 		}
 	}
@@ -115,7 +115,7 @@ public class UserDAO {
 			String sql = "delete from users where id = '" + id + "' and password = '" + input_pw + "'";
 			pstmt = conn.prepareStatement(sql);
 			if (pstmt.executeUpdate() == 1) {
-				System.out.println("»èÁ¦ ¿Ï·á");
+				System.out.println("ì‚­ì œ ì™„ë£Œ");
 				return true;
 			} else {
 				return false;
@@ -123,12 +123,12 @@ public class UserDAO {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("»èÁ¦ ½ÇÆĞ");
+			System.out.println("ì‚­ì œ ì‹¤íŒ¨");
 			return false;
 		}
 	}
 
-//	public boolean insertUser(UserDTO user) { // user¸¦ ¹Ş¾Æ¼­
+//	public boolean insertUser(UserDTO user) { // userë¥¼ ë°›ì•„ì„œ
 //		try {
 //			if (!checkId(user.getId())) {
 //				getConnection();
@@ -165,7 +165,7 @@ public class UserDAO {
 
 		try {
 			this.conn = getConnection();
-			String sql = "insert into users values(?, ?, ?, ?, ?, ?, ?, ?)"; // sqlÀº ÀÎµ¦½º 1ºÎÅÍ ½ÃÀÛ
+			String sql = "insert into users values(?, ?, ?, ?, ?, ?, ?, ?)"; // sqlì€ ì¸ë±ìŠ¤ 1ë¶€í„° ì‹œì‘
 			pstmt = conn.prepareStatement(sql);
 
 			pstmt.setString(1, userDto.getId());
@@ -177,13 +177,13 @@ public class UserDAO {
 			pstmt.setString(7, userDto.getCountry());
 			pstmt.setString(8, userDto.getMobile());
 
-			// pstmt (Äõ¸® ³¯¸±) ÁØºñ ¿Ï·á
+			// pstmt (ì¿¼ë¦¬ ë‚ ë¦´) ì¤€ë¹„ ì™„ë£Œ
 			System.out.println(pstmt);
 			if (pstmt.executeUpdate() > 0) {
-				System.out.println("À¯Àú »ğÀÔ ¼º°ø");
+				System.out.println("ìœ ì € ì‚½ì… ì„±ê³µ");
 
 			} else {
-				System.out.println("À¯Àú »ğÀÔ ½ÇÆĞ");
+				System.out.println("ìœ ì € ì‚½ì… ì‹¤íŒ¨");
 			}
 
 			pstmt = null;
