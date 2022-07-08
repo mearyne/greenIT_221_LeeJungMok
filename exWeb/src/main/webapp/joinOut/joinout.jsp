@@ -7,7 +7,7 @@
 </head>
 <body>
 	<h1>비밀번호를 입력하세요</h1>
-	<form action="joinoutPro.jsp">
+	<form action="./joinOut">
 		<input type="password" name="input_pw">
 		<input type="submit" value="탈퇴하기">
 	</form>

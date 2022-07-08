@@ -14,8 +14,8 @@
 	%>
 
 	<h1><%=log%>님 환영합니다</h1>
-	<button onclick="location.href='joinout.jsp'">회원탈퇴</button>
-	<button onclick="location.href='logoutPro.jsp'">로그아웃</button>
+	<button onclick="location.href='./joinout'">회원탈퇴</button>
+	<button onclick="location.href='./logout'">로그아웃</button>
 
 	<%
 	}

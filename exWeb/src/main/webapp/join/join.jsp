@@ -15,7 +15,7 @@
 </head>
 <body>
 	<h1>GREEN</h1>
-	<form method="post" action="joinPro.jsp">
+	<form method="post" action="JoinAction">
 		<div class="contents">
 			<input class="req" name="id" type="text" placeholder="id"> <span
 				class="warning">필수값 입력 바랍니다.</span><br>
@@ -41,21 +41,21 @@
 				<option value="none">성별</option>
 				<option value="man">남</option>
 				<option value="woman">여</option>
-			</select> <input class="req" name="email" type="email" placeholder="email">
+			</select> 
+			<input class="req" name="email" type="email" placeholder="email">
 			<div>
 				<select name="country">
 					<option value="kor">대한민국 +82</option>
-				</select> <input class="req" name="mobile" type="text" id="mobile"
-					name="mobile" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
-					placeholder="mobile" title="###-####-####"> <input
-					type="button" value="인증" onclick="checkMobile(form)">
+				</select> 
+				<input class="req" name="mobile" type="text" id="mobile" name="mobile" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
+					placeholder="mobile" title="###-####-####"> 
+				<input type="button" value="인증" onclick="checkMobile(form)">
 			</div>
 		</div>
 
 		<div class="buttons">
-			<input type="button" value="뒤로"
-				onclick="location.href = 'form_agree.html'"> <input
-				type="button" value="확인" onclick="checkJoinVal(form)">
+			<input type="button" value="뒤로" onclick="location.href = 'agree.jsp'"> 
+			<input type="button" value="확인" onclick="checkJoinVal(form)">
 		</div>
 	</form>
 

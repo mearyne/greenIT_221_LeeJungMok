@@ -15,7 +15,7 @@
 
 <body>
     <h1>GREEN</h1>
-    <form action="form_join.jsp">
+    <form method="post" action="join">
         <div class="contents">
             <input id="checkAll" type="checkbox" name="checkAll" value="checkAll">이용약관, 개인정보 수집 및 이용, 위치정보 이용약관(선택),
             프로모션 정보 수신(선택)에 모두 동의합니다.<br><br>
@@ -66,12 +66,12 @@
             <div class="warning">
                 <span>이용약관과 개인정보 수집 및 이용에 대한 안내 모두 동의해주세요.</span><br><br>
             </div>
-            <input type="button" onclick="location.href='index.html'" value="취소">
+            <input type="button" onclick="location.href='index.jsp'" value="취소">
             <input type="button" onclick="checkVal(form)" value="확인">
         </div>
     </form>
 
-    <script src="validation.js"></script>
+    <script src="JS/validation.js"></script>
 </body>
 
 </html>

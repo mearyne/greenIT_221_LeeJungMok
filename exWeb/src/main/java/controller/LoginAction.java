@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import exWeb.UserDAO;
 
@@ -37,10 +38,21 @@ public class LoginAction extends HttpServlet {
 		String userId = request.getParameter("id");
 		String userPw = request.getParameter("password");
 
-		if (dao.checkIdPw(userId, userPw)) {
-			request.getRequestDispatcher("./boardPro.jsp").forward(request, response);
-		}
 		// 페이지 이동 처리
+		if (dao.checkIdPw(userId, userPw)) {
+			request.getSession().setAttribute("log", userId);
+			request.getRequestDispatcher("board").forward(request, response);
+		}  else {
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+			
+		}
+		
+		// 세션 활용
+		// request.getSession().setAttribute(password, url);
+		
+		// 세션 객체를 request를 통해서 얻어올 수 있다.
+		// HttpSession session = request.getSession();
+		// session.setAttribute("log", id);
 	}
 
 	/**

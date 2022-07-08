@@ -6,7 +6,7 @@
 
 <head>
 <meta charset="UTF-8">
-<meta http-equiv=X-UA-Compatible " content="IE=edge">
+<meta http-equiv=X-UA-Compatible content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -35,13 +35,12 @@
 				String string = (String) session.getAttribute("hiddenString");
 				out.println(string); // 게시글들이 일괄 추가된다
 				%>
-			
 		</table>
 		</tbody>
 	</div>
 		<form>
-			<input type="button" value="글 쓰기" onclick="location.href='boardWriteForm.jsp'">
-			<input type="button" value="새로고침" onclick="location.href=`boardPro.jsp`">
+			<input type="button" value="글 쓰기" onclick="location.href='boardWrite'">
+			<input type="button" value="새로고침" onclick="location.href=`board`">
 		</form>
 	<script src="JS/board.js"></script>
 </body>

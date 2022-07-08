@@ -14,7 +14,7 @@
 <body>
 	<h1>GREEN BOARD</h1>
 	<div class="formContainer">
-		<form method="post" action="boardWriteFormPro.jsp">
+		<form method="post" action="BoardWriteAction">
 			<input type="text" id="title" name="title" placeholder="title" required><br>
 			<textarea name="contents" placeholder="contents" required></textarea><br> 
 			<input type="button" value="뒤로가기"> 
