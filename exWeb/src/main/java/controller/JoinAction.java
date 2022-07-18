@@ -14,7 +14,7 @@ import exWeb.UserDTO;
  * Servlet implementation class joinAction
  */
 //@WebServlet("/joinAction")
-public class JoinAction extends HttpServlet {
+public class JoinAction implements Action {
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -66,6 +66,12 @@ public class JoinAction extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+	}
+
+	@Override
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

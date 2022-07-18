@@ -13,7 +13,7 @@ public class DBManager {
 
 		String url = "jdbc:mysql://localhost:3306/";
 		String sqlUser = "root";
-		String sqlPassword = "987789qq";
+		String sqlPassword = "root";
 
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");

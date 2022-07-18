@@ -10,7 +10,8 @@
 <title>로그인 창</title>
 </head>
 <body>
-	<form method="post" action="login">
+	<form method="post" action="/Service">
+		<input type="hidden" name="command" value="login">
 		<input type="text" name="id" placeholder="아이디 입력" required>
 		<input type="text" name="password" placeholder="비밀번호 입력" required>
 		<div class="button">

@@ -44,7 +44,6 @@ public class LoginAction extends HttpServlet {
 			request.getRequestDispatcher("board").forward(request, response);
 		}  else {
 			request.getRequestDispatcher("index.jsp").forward(request, response);
-			
 		}
 		
 		// 세션 활용
