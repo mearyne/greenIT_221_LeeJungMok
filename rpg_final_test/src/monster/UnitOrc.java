@@ -1,7 +1,7 @@
 package monster;
 
 import party.Unit;
-import rpg_final_test.GameManager;
+import rpg_final_main.GameManager;
 import stage.StageBattle;
 
 public class UnitOrc extends UnitMonster {

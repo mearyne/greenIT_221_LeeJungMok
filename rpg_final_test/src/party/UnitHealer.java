@@ -22,8 +22,9 @@ public class UnitHealer extends UnitTeam {
 		super.setRing(new ItemRing());
 	}
 
+	// 아군을 300만큼 힐한다
 	@Override
-	public void skill() { // 아군을 300만큼 힐한다
+	public void skill() {
 		unitParty.printParty();
 		int sel = unitParty.selParty();
 
@@ -36,7 +37,7 @@ public class UnitHealer extends UnitTeam {
 		}
 
 		target.setHp(target.getHp() + 300);
-		
+
 		try {
 			Thread.sleep(500);
 		} catch (Exception e) {

@@ -1,5 +1,4 @@
-
-package rpg_final_test;
+package rpg_final_main;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -10,7 +9,6 @@ import party.UnitParty;
 import party.UnitPlayer;
 import party.UnitWizard;
 import stage.Inventory;
-import stage.Save;
 import stage.Stage;
 import stage.StageForest;
 import stage.StageInn;
@@ -19,21 +17,19 @@ import stage.StageLobby;
 import stage.StageShop;
 
 public class GameManager { // 게임의 전체적인 통괄관리자
-
 	public static Scanner scan = new Scanner(System.in);
 	public static Random rand = new Random();
 
 	public static ArrayList<Stage> stageList = new ArrayList<>();
 
+	// 메뉴에 스테이지 추가
 	public GameManager() {
-		// 스테이지 추가
 		stageList.add(new StageLobby());
 		stageList.add(new StageForest());
 		stageList.add(new StageShop());
 		stageList.add(new StageInn());
 		stageList.add(new Inventory());
 		stageList.add(new StageItemManager());
-		stageList.add(new Save());
 
 		// 파티 배열에 파티원들 추가하기
 		UnitParty.partys.add(UnitPlayer.getInstance());
@@ -41,6 +37,7 @@ public class GameManager { // 게임의 전체적인 통괄관리자
 		UnitParty.partys.add(new UnitHealer());
 	}
 
+	// 게임을 시작한다
 	public void run() {
 		System.out.println("게임 시작!");
 

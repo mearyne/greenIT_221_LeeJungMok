@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import party.Unit;
 import party.UnitParty;
-import rpg_final_test.GameManager;
+import rpg_final_main.GameManager;
 
 public class StageBattle extends Stage {
 	
@@ -15,6 +15,13 @@ public class StageBattle extends Stage {
 		super("결투장");
 	}
 
+	@Override
+	public void init() {
+		addPartyInBattle();
+		addRandMonsterInBattle();
+
+	}
+	
 	@Override
 	public void play() {
 		init();
@@ -124,12 +131,6 @@ public class StageBattle extends Stage {
 		return false;
 	}
 
-	@Override
-	public void init() {
-		addPartyInBattle();
-		addRandMonsterInBattle();
-
-	}
 
 	private void addPartyInBattle() {
 		// TODO 주소값을 넣는건 어떤가? 넣었다. 실제로 어떻게 바뀌는지 확인 바람

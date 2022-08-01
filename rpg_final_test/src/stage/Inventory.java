@@ -12,7 +12,7 @@ import item.ItemWeapon;
 import party.Unit;
 import party.UnitParty;
 import party.UnitPlayer;
-import rpg_final_test.GameManager;
+import rpg_final_main.GameManager;
 
 public class Inventory extends Stage {
 	private UnitParty party = new UnitParty();

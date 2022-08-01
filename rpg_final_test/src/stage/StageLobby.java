@@ -2,7 +2,7 @@ package stage;
 
 import java.util.ArrayList;
 
-import rpg_final_test.GameManager;
+import rpg_final_main.GameManager;
 
 public class StageLobby extends Stage {
 	private ArrayList<Stage> stageList = GameManager.stageList;
@@ -16,7 +16,6 @@ public class StageLobby extends Stage {
 		while (true) {
 			printStage();
 			int sel = selStage();
-
 			if (sel == QUIT)
 				break;
 		}
@@ -24,8 +23,6 @@ public class StageLobby extends Stage {
 
 	@Override
 	public void init() {
-		// TODO Auto-generated method stub
-
 	}
 
 	private void printStage() {

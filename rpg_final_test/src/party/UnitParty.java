@@ -3,7 +3,7 @@ package party;
 import java.util.ArrayList;
 
 import item.Item;
-import rpg_final_test.GameManager;
+import rpg_final_main.GameManager;
 
 public class UnitParty {
 

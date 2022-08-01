@@ -9,7 +9,7 @@ import item.ItemManager;
 import item.ItemPotion;
 import item.ItemRing;
 import item.ItemWeapon;
-import rpg_final_test.GameManager;
+import rpg_final_main.GameManager;
 
 public class StageShop extends Stage {
 	private ItemManager itemManager = new ItemManager();
@@ -32,9 +32,7 @@ public class StageShop extends Stage {
 			if (selMenu() == QUIT) {
 				break;
 			}
-
 		}
-
 	}
 
 	@Override

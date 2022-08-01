@@ -2,7 +2,7 @@ package party;
 
 import java.util.ArrayList;
 
-import rpg_final_test.GameManager;
+import rpg_final_main.GameManager;
 import stage.StageBattle;
 
 public class UnitTeam extends Unit {

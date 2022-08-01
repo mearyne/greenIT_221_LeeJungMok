@@ -1,6 +1,6 @@
 package stage;
 
-import rpg_final_test.GameManager;
+import rpg_final_main.GameManager;
 
 public class StageForest extends Stage {
 

@@ -3,7 +3,7 @@ package party;
 import item.Item;
 import item.ItemRing;
 import item.ItemWeapon;
-import rpg_final_test.GameManager;
+import rpg_final_main.GameManager;
 
 public abstract class Unit { // 모든 유닛들의 부모클래스
 
@@ -18,22 +18,6 @@ public abstract class Unit { // 모든 유닛들의 부모클래스
 	private boolean team;
 	private int speed;
 	private int myFinalAtk;
-
-	public void attack() {
-		while (true) {
-			printAttackMenu();
-			int sel = selAttackMenu();
-
-			if (sel == 1) {
-				normalAttack();
-				break;
-			} else if (sel == 2) {
-				skill();
-				break;
-			}
-
-		}
-	}
 
 	public abstract void skill();
 
@@ -93,14 +77,6 @@ public abstract class Unit { // 모든 유닛들의 부모클래스
 		this.ring = ring;
 	}
 
-	public void printWearing() {
-		System.out.printf("[%s]\n", name);
-		System.out.printf("ㄴ%s\n", weapon.getName());
-		System.out.printf("ㄴ%s\n", armour.getName());
-		System.out.printf("ㄴ%s\n", ring.getName());
-
-	}
-
 	public int getMaxHp() {
 		return maxHp;
 	}
@@ -125,12 +101,30 @@ public abstract class Unit { // 모든 유닛들의 부모클래스
 		this.speed = speed;
 	}
 
+	public int getPlusAtk() {
+		return 0;
+	}
+
+	public int getPlusDef() {
+		return 0;
+	}
+
+	// 입고있는 장비를 출력한다
+	public void printWearing() {
+		System.out.printf("[%s]\n", name);
+		System.out.printf("ㄴ%s\n", weapon.getName());
+		System.out.printf("ㄴ%s\n", armour.getName());
+		System.out.printf("ㄴ%s\n", ring.getName());
+	}
+
+	// 공격 메뉴를 출력한다
 	private void printAttackMenu() {
 		System.out.printf("[%s]의 차례입니다. \n", name);
 		System.out.println("1. 공격");
 		System.out.println("2. 스킬");
 	}
 
+	// 공격 선택 메뉴를 출력한다
 	private int selAttackMenu() {
 		while (true) {
 			System.out.print("선택 :");
@@ -143,10 +137,6 @@ public abstract class Unit { // 모든 유닛들의 부모클래스
 			}
 
 		}
-	}
-
-	public void attackMenu() {
-
 	}
 
 	public abstract void normalAttack();
@@ -166,23 +156,16 @@ public abstract class Unit { // 모든 유닛들의 부모클래스
 		enemy.setHp(enemy.getHp() - (getMyFinalAtk() - enemy.getDef()));
 	}
 
+	// 내 최종 공격력을 계산한다
+	// 최종 공격력 = 기본 공격력 + 무기 공격력 + 반지 공격력
 	public void calculateMyFinalAtk() {
 		ItemWeapon weapon = (ItemWeapon) getWeapon();
-
 		ItemRing ring = (ItemRing) getRing();
-
 		setMyFinalAtk(getAtk() + weapon.getPlusAtk() + ring.getPlusAtk());
 
 	}
 
-	public int getPlusAtk() {
-		return 0;
-	}
-
-	public int getPlusDef() {
-		return 0;
-	}
-
+	// 일정 시간만큼 딜레이를 준다
 	public void delay(int sleep) {
 		System.out.println();
 		try {
@@ -191,7 +174,25 @@ public abstract class Unit { // 모든 유닛들의 부모클래스
 		}
 
 	}
-	
+
+	// 전투중일때 공격차례가 됐을때 사용된다
+	// 일반공격 혹은 스킬을 사용할 수 있다
+	public void attack() {
+		while (true) {
+			printAttackMenu();
+			int sel = selAttackMenu();
+
+			if (sel == 1) {
+				normalAttack();
+				break;
+			} else if (sel == 2) {
+				skill();
+				break;
+			}
+
+		}
+	}
+
 	@Override
 	public String toString() {
 		String data = "";
@@ -203,7 +204,7 @@ public abstract class Unit { // 모든 유닛들의 부모클래스
 			data += "/" + armour;
 		if (getRing() != null)
 			data += "/" + ring;
-		
+
 		return data;
 	}
 }
