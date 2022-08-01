@@ -4,7 +4,6 @@ public class ItemArmour extends Item {
 	private int plusDef; // 추가되는 방어력
 	
 	public ItemArmour() {
-		// TODO Auto-generated constructor stub
 		super();
 	}
 

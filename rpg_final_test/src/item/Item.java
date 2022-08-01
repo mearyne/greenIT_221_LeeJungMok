@@ -7,17 +7,12 @@ public class Item {
 	public int plusAtk;
 
 	private String name;
-	private int type; // 해당 아이템의 타입
 
+	private int type; // 해당 아이템의 타입
 	public static final int WEAPON = 1;
 	public static final int ARMOUR = 2;
 	public static final int RING = 3;
 	public static final int POTION = 4;
-
-	public Item() {
-		name = "비어있음";
-		type = 10000;
-	}
 
 	public int getItemCode() {
 		return itemCode;
@@ -52,6 +47,11 @@ public class Item {
 		if (type == 10000)
 			return true;
 		return false;
+	}
+
+	public Item() {
+		name = "비어있음";
+		type = 10000;
 	}
 
 	@Override
